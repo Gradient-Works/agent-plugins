@@ -1,0 +1,5 @@
+{
+  "name": "gw-abk-actions",
+  "version": "0.1.0",
+  "description": "Look up Gradient Works Automation Builder Kit (ABK) invocable action reference docs for interpreting and building Salesforce flows."
+}
