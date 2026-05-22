@@ -1,5 +1,5 @@
 ---
-name: flow-actions
+name: gw-abk-actions
 description: Look up Gradient Works ABK (Automation Builder Kit) invocable action reference docs. Use this when interpreting a flow configuration returned by get_flow_version, or when building a new Salesforce flow and you need to know which Gradient Works actions to use and what inputs/outputs they expect.
 argument-hint: "<category or action name, e.g. 'matching', 'queues', or 'Convert Lead'>"
 allowed-tools: Read
@@ -42,13 +42,13 @@ Based on the argument or context:
 For each relevant category, read:
 
 ```
-${CLAUDE_PLUGIN_ROOT}/docs/<slug>.md
+${CLAUDE_SKILL_DIR}/references/<slug>.md
 ```
 
 For example:
 ```
-${CLAUDE_PLUGIN_ROOT}/docs/matching.md
-${CLAUDE_PLUGIN_ROOT}/docs/queues.md
+${CLAUDE_SKILL_DIR}/references/matching.md
+${CLAUDE_SKILL_DIR}/references/queues.md
 ```
 
 ### Step 3: Return the information
