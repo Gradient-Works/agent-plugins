@@ -2,7 +2,7 @@
 name: flow-actions
 description: Look up Gradient Works ABK (Automation Builder Kit) invocable action reference docs. Use this when interpreting a flow configuration returned by get_flow_version, or when building a new Salesforce flow and you need to know which Gradient Works actions to use and what inputs/outputs they expect.
 argument-hint: "<category or action name, e.g. 'matching', 'queues', or 'Convert Lead'>"
-allowed-tools: WebFetch
+allowed-tools: Read
 ---
 
 # Gradient Works ABK Flow Actions
@@ -37,18 +37,18 @@ Based on the argument or context:
 - If interpreting an existing flow config, scan the action node names/types present and identify which categories they belong to using the table above.
 - If building a new flow from a description, identify which categories cover the operations described. When in doubt, fetch multiple.
 
-### Step 2: Fetch the relevant category docs
+### Step 2: Read the relevant category docs
 
-For each relevant category, fetch:
+For each relevant category, read:
 
 ```
-https://agents.gradient.works/docs/flow-actions/<slug>.md
+${CLAUDE_PLUGIN_ROOT}/docs/<slug>.md
 ```
 
 For example:
 ```
-https://agents.gradient.works/docs/flow-actions/matching.md
-https://agents.gradient.works/docs/flow-actions/queues.md
+${CLAUDE_PLUGIN_ROOT}/docs/matching.md
+${CLAUDE_PLUGIN_ROOT}/docs/queues.md
 ```
 
 ### Step 3: Return the information
