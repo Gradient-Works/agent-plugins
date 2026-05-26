@@ -35,13 +35,9 @@ specified User based on the User's assigned Target Book.
 **Note:** Bookbuilder must be enabled to use this action.
 
 Use this action to execute an account retrieval to pull accounts from reps' books.
-When used in a schedule-triggered flow, this action allows for automatically
-pulling back unworked accounts on a regular schedule from a team of reps so
-that the accounts can be redistributed to others.
-
-To use this action, first set up a retrieval template in Bookbuilder to define
-the retrieval you'd like to use. Then in the Flow action, select the Retrieval
-Template you've previously configured to run in the flow.
+Specify a Retrieval Template configured in Bookbuilder using either
+`distributionDefinitionIdentifier` (the template Id or Name) or
+`distributionDefinitionRecord`.
 
 The retrieval runs asynchronously in the background. This action has no outputs —
 use Bookbuilder to view retrieval results and history.
