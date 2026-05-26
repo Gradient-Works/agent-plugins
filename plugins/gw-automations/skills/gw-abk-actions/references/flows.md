@@ -36,7 +36,7 @@ Please note the following limitations:
 | `executionDelay` | `Integer` | No | If the Flow is scheduled, the number of minutes to wait before invoking it. |
 | `executionSchedule` | `String` | No | One of `immediate` or `scheduled`. Controls whether the Flow is invoked immediately or scheduled to run later. |
 | `flowInputData` | `String` | No | Data that describes the Flow inputs. See action overview for more information about supported inputs. |
-| `flowInterviewGuid` | `String` | No | Automatically provided as `$Flow.InterviewGuid`. |
+| `flowInterviewGuid` | `String` | No | Set this to `$Flow.InterviewGuid`. |
 
 ### Outputs
 
@@ -55,9 +55,9 @@ to ensure proper Flow execution error tracing.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `flowFaultMessage` | `String` | Yes | Automatically provided as `$Flow.FaultMessage`. |
-| `flowInterviewGuid` | `String` | Yes | Automatically provided as `$Flow.InterviewGuid`. |
-| `flowApiName` | `String` | No | The API name of the flow. Automatically provided if available. |
+| `flowFaultMessage` | `String` | Yes | Set this to `$Flow.FaultMessage`. |
+| `flowInterviewGuid` | `String` | Yes | Set this to `$Flow.InterviewGuid`. |
+| `flowApiName` | `String` | No | The API name of the flow. |
 
 ### Outputs
 
@@ -78,8 +78,8 @@ to ensure proper Flow execution tracing.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `flowInterviewGuid` | `String` | Yes | Automatically provided as `$Flow.InterviewGuid`. |
-| `flowApiName` | `String` | No | The API name of the flow. Automatically provided if available. |
+| `flowInterviewGuid` | `String` | Yes | Set this to `$Flow.InterviewGuid`. |
+| `flowApiName` | `String` | No | The API name of the flow. |
 
 ### Outputs
 
@@ -103,7 +103,7 @@ lifecycle can be tracked.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `flowInterviewGuid` | `String` | Yes | The StartFlowAction interview GUID. |
+| `flowInterviewGuid` | `String` | Yes | Set this to the `flowInterviewGuid` output from the Start action. |
 | `flowApiName` | `String` | No | The API name of the flow. |
 
 ### Outputs
@@ -126,8 +126,8 @@ to also place a FinishFlowAction at the end of your Flow.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `flowInterviewGuid` | `String` | Yes | Automatically provided as `$Flow.InterviewGuid`. |
-| `flowApiName` | `String` | No | The API name of the flow. Automatically provided if available. |
+| `flowInterviewGuid` | `String` | Yes | Set this to `$Flow.InterviewGuid`. |
+| `flowApiName` | `String` | No | The API name of the flow. |
 | `recordId` | `Id` | No | The Id of the record being used in the Flow. |
 
 ### Outputs
