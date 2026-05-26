@@ -22,11 +22,20 @@ Flow using the value of a resource in the calling Flow. This allows you to
 dynamically execute a subflow based on the result of a decision or formula
 in the calling Flow.
 
-Please note the following limitations:
+Limitations:
 
 * Subflows must be active and auto-launched without a trigger
-* Only Text, Number and Boolean types are supported for inputs
-* Subflow outputs are not currently accessible from this action
+* Subflow outputs are not accessible from this action
+
+`flowInputData` format — a JSON object where each key is a subflow variable API name
+and the value specifies the data to pass:
+
+```
+{"variableName": {"value": "<string>", "dataType": "<type>"}, ...}
+```
+
+All values must be provided as strings. Supported `dataType` values:
+`String`, `Integer`, `Number`, `Boolean`.
 
 ### Inputs
 
@@ -35,7 +44,7 @@ Please note the following limitations:
 | `flowApiName` | `String` | Yes | The API name of the Flow to execute. |
 | `executionDelay` | `Integer` | No | If the Flow is scheduled, the number of minutes to wait before invoking it. |
 | `executionSchedule` | `String` | No | One of `immediate` or `scheduled`. Controls whether the Flow is invoked immediately or scheduled to run later. |
-| `flowInputData` | `String` | No | Data that describes the Flow inputs. See action overview for more information about supported inputs. |
+| `flowInputData` | `String` | No | A JSON object of subflow input values. See the action description for the format. |
 | `flowInterviewGuid` | `String` | No | Set this to `$Flow.InterviewGuid`. |
 
 ### Outputs
@@ -118,9 +127,8 @@ lifecycle can be tracked.
 
 **Action class:** `StartFlowAction`
 
-Use this action at the very beginning of a Flow to turn on execution tracing
-for individual executions of the Flow ("interviews" in Flow-speak). Make sure
-to also place a FinishFlowAction at the end of your Flow.
+Use this action at the very beginning of a Flow to enable execution tracing.
+Also place a Finish action at the end of the Flow.
 
 ### Inputs
 
