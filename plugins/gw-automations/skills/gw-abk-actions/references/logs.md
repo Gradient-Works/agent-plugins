@@ -1,12 +1,12 @@
 # Logs
 
-Actions for writing messages to the Gradient Works log, useful for debugging flow executions.
+Actions for writing messages to Gradient Works Log Entries, useful for debugging flow executions.
 
 ## Log Message
 
 **Action class:** `LogAction`
 
-Publish a message to the Gradient Works Log. This is useful for debugging
+Publish a message to Gradient Works Log Entries. This is useful for debugging
 your Flows.
 
 ### Inputs
@@ -21,6 +21,6 @@ your Flows.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `message` | `String` | The message published to the log. |
+| `message` | `String` | The message published to Gradient Works Log Entries. |
 
 ---
