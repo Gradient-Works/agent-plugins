@@ -62,8 +62,6 @@ Reference documentation for all Gradient Works ABK (Automation Builder Kit) invo
 
 - **gw-abk-actions** — Look up action reference docs by category (queues, matching, flows, next steps, collections, dynamic books, users, logs, events, leads, assign, notifications, utils). Use when building or interpreting Salesforce flow configurations that include Gradient Works actions.
 
-See [plugins/gw-automations/README.md](plugins/gw-automations/README.md) for more details.
-
 ### Other tools
 
 For any other tool that supports the [Agent Skills specification](https://agentskills.io/):
