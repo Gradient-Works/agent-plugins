@@ -1,6 +1,6 @@
 # Flows
 
-Lifecycle actions that bookend a Gradient Works flow. Place Start at the top and Finish at the bottom of every flow to enable execution tracing.
+Flow lifecycle and subflow execution actions. Place Start at the top and Finish at the bottom of every flow to enable execution tracing. Use Execute Subflow to dynamically invoke a subflow or to run subflows in scheduled paths where the native Subflow element does not work.
 
 ## Execute Subflow
 
