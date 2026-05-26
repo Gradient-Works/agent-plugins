@@ -10,9 +10,10 @@ Takes a collection of records as `input` and the name of a field and builds
 a RecordMap where the keys are the values of the specified `keyField`. You
 can then use Get Record from Record Map to get a record based on a key.
 
-To store the RecordMap output in a Flow variable, create an Apex-Defined
-variable with apex class `GradientWorks__RecordMap`. Do not check
-"Allow multiple values (collection)".
+To use the RecordMap later in your Flow, make sure to select
+`Store Output Variables` and assign it to a variable resource with
+a data type of `Apex-Defined` and an apex class of `GradientWorks__RecordMap`.
+When creating the resource, **do not** check "Allow multiple values (collection)".
 
 For example, if you specify `input` as a collection of Leads and `keyField`
 as `Id`, this will generate a RecordMap you can use to look up a Lead based
@@ -56,9 +57,10 @@ of the object specified by the `lookupField`. The fields loaded for the
 related records are defined by `selectFields`. This provides an efficient
 way to query for a large number of related records at once.
 
-To store the RecordMap output in a Flow variable, create an Apex-Defined
-variable with apex class `GradientWorks__RecordMap`. Do not check
-"Allow multiple values (collection)".
+To use the RecordMap later in your Flow, make sure to select
+`Store Output Variables` and assign it to a variable resource with
+a data type of `Apex-Defined` and an apex class of `GradientWorks__RecordMap`.
+When creating the resource, **do not** check "Allow multiple values (collection)".
 
 For example, consider the following Flow structure:
 
