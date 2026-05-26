@@ -4,7 +4,7 @@
     "name": "Gradient Works",
     "email": "revops@gradient.works"
   },
-  "description": "Official Claude Code plugins from Gradient Works",
+  "description": "Official Cursor plugins from Gradient Works",
   "metadata": {
     "pluginRoot": "./plugins"
   },
