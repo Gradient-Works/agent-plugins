@@ -21,7 +21,7 @@ field API name:
 {"fieldApiName": {"value": "literalValue or {!flowVariable}", "dataType": "<type>"}, ...}
 ```
 
-Supported `dataType` values: `String`, `Integer`, `Number`, `Boolean`.
+Supported `dataType` values: `String`, `Integer`, `Number`, `Boolean`, `Date`, `Datetime`, `Currency`, `Id`.
 
 ### Inputs
 
@@ -121,7 +121,7 @@ can be specified together.
 {"fieldApiName": {"value": "literalValue or {!flowVariable}", "dataType": "<type>"}, ...}
 ```
 
-Supported `dataType` values: `String`, `Integer`, `Number`, `Boolean`.
+Supported `dataType` values: `String`, `Integer`, `Number`, `Boolean`, `Date`, `Datetime`, `Currency`, `Id`.
 
 ### Inputs
 
