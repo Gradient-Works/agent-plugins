@@ -6,10 +6,8 @@ Lifecycle actions that bookend a Gradient Works flow. Place Start at the top and
 
 **Action class:** `GWFXExecuteSubflowAction`
 
-<aside class="warning">
-This is an advanced action. If your subflow is not optimized or this action
+**Note:** This is an advanced action. If your subflow is not optimized or this action
 is used repeatedly (e.g. in a loop), your Flow may run poorly or fail.
-</aside>
 
 Flow provides the ability to run a subflow natively through the [Subflow
 element](https://help.salesforce.com/articleView?id=sf.flow_ref_elements_subflow.htm&type=5).
@@ -34,11 +32,11 @@ Please note the following limitations:
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `flowApiName` | `String` | Yes | The API name of the Flow to execute |
-| `executionDelay` | `Integer` | No | If Flow is scheduled, number of minutes to wait before invoking Flow |
-| `executionSchedule` | `String` | No | One of 'immediate' or 'scheduled'. Should the Flow be invoked immediately or scheduled to run later. |
+| `flowApiName` | `String` | Yes | The API name of the Flow to execute. |
+| `executionDelay` | `Integer` | No | If the Flow is scheduled, the number of minutes to wait before invoking it. |
+| `executionSchedule` | `String` | No | One of `immediate` or `scheduled`. Controls whether the Flow is invoked immediately or scheduled to run later. |
 | `flowInputData` | `String` | No | Data that describes the Flow inputs. See action overview for more information about supported inputs. |
-| `flowInterviewGuid` | `String` | No | Automatically provided as $Flow.InterviewGuid. |
+| `flowInterviewGuid` | `String` | No | Automatically provided as `$Flow.InterviewGuid`. |
 
 ### Outputs
 
@@ -57,15 +55,15 @@ to ensure proper Flow execution error tracing.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `flowFaultMessage` | `String` | Yes | Automatically provided as $Flow.FaultMessage |
-| `flowInterviewGuid` | `String` | Yes | Automatically provided as $Flow.InterviewGuid. |
+| `flowFaultMessage` | `String` | Yes | Automatically provided as `$Flow.FaultMessage`. |
+| `flowInterviewGuid` | `String` | Yes | Automatically provided as `$Flow.InterviewGuid`. |
 | `flowApiName` | `String` | No | The API name of the flow. Automatically provided if available. |
 
 ### Outputs
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `flowFaultMessage` | `String` | The Flow fault path message |
+| `flowFaultMessage` | `String` | The Flow fault path message. |
 
 ---
 
@@ -80,14 +78,14 @@ to ensure proper Flow execution tracing.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `flowInterviewGuid` | `String` | Yes | Automatically provided as $Flow.InterviewGuid. |
-| `flowApiName` | `String` | No |  |
+| `flowInterviewGuid` | `String` | Yes | Automatically provided as `$Flow.InterviewGuid`. |
+| `flowApiName` | `String` | No | The API name of the flow. Automatically provided if available. |
 
 ### Outputs
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `flowInterviewGuid` | `String` | The interview GUID |
+| `flowInterviewGuid` | `String` | The Flow interview GUID. |
 
 ---
 
@@ -96,25 +94,23 @@ to ensure proper Flow execution tracing.
 **Action class:** `ResumeFlowAction`
 
 Pair this with StartFlowAction and FinishFlowAction. Use this action after a
-Screen Flow action to resume execution tracing for individual executions of
-the Flow ("interviews" in Flow-speak). Screen Flow actions can cause the
-transaction for the Flow execution to change which makes execution tracing
-difficult. Resuming tracking of the original transaction from the
-StartFlowAction will allow us to continue to track the full Flow execution
-lifecycle.
+Screen element in a Screen Flow to resume execution tracing. Screen elements
+cause a new transaction to begin, which breaks the tracing started by
+StartFlowAction. This action reconnects the trace so the full Flow execution
+lifecycle can be tracked.
 
 ### Inputs
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `flowInterviewGuid` | `String` | Yes | The StartFlowAction interview GUID. |
-| `flowApiName` | `String` | No | The API name of the flow |
+| `flowApiName` | `String` | No | The API name of the flow. |
 
 ### Outputs
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `flowInterviewGuid` | `String` | The interview GUID |
+| `flowInterviewGuid` | `String` | The Flow interview GUID. |
 
 ---
 
@@ -130,14 +126,14 @@ to also place a FinishFlowAction at the end of your Flow.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `flowInterviewGuid` | `String` | Yes | Automatically provided as $Flow.InterviewGuid. |
+| `flowInterviewGuid` | `String` | Yes | Automatically provided as `$Flow.InterviewGuid`. |
 | `flowApiName` | `String` | No | The API name of the flow. Automatically provided if available. |
-| `recordId` | `Id` | No | Record Id of the record being used in the Flow. |
+| `recordId` | `Id` | No | The Id of the record being used in the Flow. |
 
 ### Outputs
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `flowInterviewGuid` | `String` | The interview GUID |
+| `flowInterviewGuid` | `String` | The Flow interview GUID. |
 
 ---
