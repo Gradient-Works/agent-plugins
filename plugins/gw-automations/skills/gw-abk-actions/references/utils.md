@@ -6,30 +6,28 @@ Utility actions for miscellaneous flow operations.
 
 **Action class:** `GWFXEvaluateDomainAction`
 
-Takes a text `input` and extracts a domain (if possible) and compares that
-to the domains denylist you configured. The `result` will contain a
-DomainEvaluationResult that specifies the extracted domain and whether the
-domain is included in the denylist or not.
+Extracts a domain from a text `input` and checks whether it is in the
+configured domain denylist. The `result` output contains the extracted
+domain and whether it is in the denylist.
 
 ### Inputs
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `input` | `String` | Yes | Text value to extract domain from |
+| `input` | `String` | Yes | The text value to extract a domain from. |
 
 ### Outputs
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `result` | `DomainEvaluationResult` | Result from evaluating the extracted domain against the Denylist |
+| `result` | `DomainEvaluationResult` | The result of evaluating the extracted domain against the denylist. |
 
 **`DomainEvaluationResult` fields:**
-Holds information about whether a domain is in the Denylist or not as a result
-of executing the GWFXEvaluateDomainAction
+The result of evaluating a domain against the configured denylist.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `domain` | `String` | The domain extracted from an intial text input |
-| `inDenylist` | `Boolean` | If the domain is in the Denylist or not |
+| `domain` | `String` | The domain extracted from the input text. |
+| `inDenylist` | `Boolean` | True if the domain is in the denylist. |
 
 ---
