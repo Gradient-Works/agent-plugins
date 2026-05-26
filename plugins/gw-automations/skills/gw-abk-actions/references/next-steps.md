@@ -7,39 +7,39 @@ Post-assignment actions: creating tasks, enrolling prospects in cadences, sendin
 **Action class:** `AddProspectToCampaignAction`
 
 Use this action to assign a person (Lead or Contact) to an existing
-Campaign. If the person already exists in the Campaign, the action will
-return the existing Campaign Member.
+Campaign. If the person already exists in the Campaign, the action returns
+the existing Campaign Member.
 
-You can update additional fields on the Campaign Member Record using the
-"Additional Campaign Member Details" section in the editor. If an existing
-Campaign Member is found, we will update any of the specified additional fields
-<strong>only</strong> if those fields are blank.
+To set additional fields on the Campaign Member, use `campaignMemberData`.
+For existing Campaign Members, `campaignMemberData` fields are applied
+**only** if those fields are currently blank.
 
-Pair this with StartFlowAction to save information on newly created Campaign
-Member Records about the Flow. This will help track which Campaign Members
-were created as a result of this action which can be useful for reporting
-and debugging.
+`campaignMemberData` format — a JSON object where each key is a CampaignMember
+field API name:
 
-Use the `campaignMember` output to see details about the Campaign Member
-Record that was created or updated.
+```
+{"fieldApiName": {"value": "literalValue or {!flowVariable}", "dataType": "<type>"}, ...}
+```
+
+Supported `dataType` values: `String`, `Integer`, `Number`, `Boolean`.
 
 ### Inputs
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `campaignId` | `Id` | No | Campaign Id to add Person to |
-| `campaignMemberData` | `String` | No | Additional updates to CampaignMember |
-| `campaignName` | `String` | No | Campaign Name to add Person to |
-| `campaignRecord` | `Campaign` | No | Campaign to add Person to |
-| `prospectId` | `Id` | No | Lead or Contact Id to assign to the Campaign |
-| `prospectRecord` | `SObject` | No | Lead or Contact to assign to the Campaign |
-| `status` | `String` | No | Person status when added to Campaign |
+| `campaignId` | `Id` | No | The Id of the Campaign to add the person to. Provide this or `campaignRecord` or `campaignName`. |
+| `campaignMemberData` | `String` | No | Additional CampaignMember fields to set. For existing Campaign Members, only applies to fields that are currently blank. See the action description for the format. |
+| `campaignName` | `String` | No | The Name of the Campaign to add the person to. Provide this or `campaignRecord` or `campaignId`. |
+| `campaignRecord` | `Campaign` | No | The Campaign to add the person to. Provide this or `campaignId` or `campaignName`. |
+| `prospectId` | `Id` | No | The Id of the Lead or Contact to assign to the Campaign. Provide this or `prospectRecord`. |
+| `prospectRecord` | `SObject` | No | The Lead or Contact to assign to the Campaign. Provide this or `prospectId`. |
+| `status` | `String` | No | The status of the Campaign Member when added to the Campaign. |
 
 ### Outputs
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `campaignMember` | `CampaignMember` | CampaignMember Record |
+| `campaignMember` | `CampaignMember` | The created or existing CampaignMember record. |
 
 ---
 
@@ -47,25 +47,25 @@ Record that was created or updated.
 
 **Action class:** `AddProspectToCadenceAction`
 
-<aside class="notice">
-Authentication with a Sales Engagement Platform is required to use this action.
-This action runs asynchronously and does not have any result outputs.
-</aside>
+**Note:** Authentication with a Sales Engagement Platform is required to use this action.
+This action runs asynchronously and has no outputs.
 
 Use this action to add a Lead or Contact to an existing Sales Engagement Cadence
 and assign them to a specific User in the Sales Engagement platform. If the
 Lead or Contact already exists in the Sales Engagement Cadence, the action
-will skip that Lead or Contact.
+skips that Lead or Contact.
+
+The Lead or Contact must have an Email address.
 
 ### Inputs
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `assignToId` | `Id` | No | User Id to assign the Sales Engagement Cadence member to |
-| `assignToRecord` | `User` | No | User to assign the Sales Engagement Cadence member to |
-| `cadenceId` | `String` | No | Sales Engagement Cadence Id or Name |
-| `prospectId` | `Id` | No | Lead or Contact Id to add to Sales Engagement Cadence |
-| `prospectRecord` | `SObject` | No | Lead or Contact to add to Sales Engagement Cadence |
+| `assignToId` | `Id` | No | The Id of the User to assign the cadence member to. Provide this or `assignToRecord`. |
+| `assignToRecord` | `User` | No | The User to assign the cadence member to. Provide this or `assignToId`. |
+| `cadenceId` | `String` | No | The Id or Name of the Sales Engagement Cadence. |
+| `prospectId` | `Id` | No | The Id of the Lead or Contact to add. Provide this or `prospectRecord`. |
+| `prospectRecord` | `SObject` | No | The Lead or Contact to add. Provide this or `prospectId`. |
 
 ### Outputs
 
@@ -77,31 +77,31 @@ _None._
 
 **Action class:** `ProspectEnrollmentInCadenceAction`
 
-Use this action to check whether or not a Person is already enrolled in
+Use this action to check whether a Lead or Contact is already enrolled in
 a Sales Engagement Cadence.
 
-The `status` output will display one of three values:
+The `status` output returns one of three values:
 
- * Enrolled - the Person is enrolled in the Sales Engagement Cadence
- * Not Enrolled - the Person is not enrolled in the Sales Engagement Cadence
- * Error - an error occurred and we were not able to determine the Person status
+ * Enrolled - the person is enrolled in the cadence
+ * Not Enrolled - the person is not enrolled in the cadence
+ * Error - an error occurred and the enrollment status could not be determined
 
-If an error occurs, we will display the error in the `error` output
+If an error occurs, the error details are available in the `error` output.
 
 ### Inputs
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `cadenceId` | `String` | No | Sales Engagement Cadence Id or Name |
-| `prospectEmail` | `String` | No | Lead or Contact Email to check enrollment for |
-| `prospectRecord` | `SObject` | No | Lead or Contact to check enrollment for |
+| `cadenceId` | `String` | No | The Id or Name of the Sales Engagement Cadence. |
+| `prospectEmail` | `String` | No | The email address or Id of the Lead or Contact to check enrollment for. Provide this or `prospectRecord`. |
+| `prospectRecord` | `SObject` | No | The Lead or Contact to check enrollment for. Provide this or `prospectEmail`. |
 
 ### Outputs
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `error` | `String` | Any errors that occur will be listed here |
-| `status` | `String` | The enrollment status of the Person |
+| `error` | `String` | The error message if `status` is `Error`. Null otherwise. |
+| `status` | `String` | The enrollment status: `Enrolled`, `Not Enrolled`, or `Error`. |
 
 ---
 
@@ -114,6 +114,14 @@ Use this action to immediately create and assign Tasks to users.
 Use `relatedRecord` for the non-person record the Task is related to, such as
 an Account or Opportunity. Use `relatedPerson` for the Contact or Lead. Both
 can be specified together.
+
+`taskData` format — a JSON object where each key is a Task field API name:
+
+```
+{"fieldApiName": {"value": "literalValue or {!flowVariable}", "dataType": "<type>"}, ...}
+```
+
+Supported `dataType` values: `String`, `Integer`, `Number`, `Boolean`.
 
 ### Inputs
 
@@ -162,8 +170,8 @@ Salesforce and Slack.
 |-------|------|----------|-------------|
 | `message` | `String` | Yes | The main message body. |
 | `channel` | `String` | No | A Slack channel id or name. Used when `notificationType` is `channel`. |
-| `fieldsJson` | `String` | No | List of fields to display in Slack message |
-| `linkedRecordsJson` | `String` | No | List of records to link to in Slack message |
+| `fieldsJson` | `String` | No | A JSON array of fields to display in the Slack message. Format: `[{"label": "<display name>", "value": "<text>", "recordId": "<optional Salesforce Id>"}, ...]` |
+| `linkedRecordsJson` | `String` | No | A JSON array of Salesforce records to link to in the Slack message. Format: `[{"recordId": "<Salesforce Id>"}, ...]` |
 | `notificationType` | `String` | No | One of `channel` to send to a Slack channel, or `direct_message` to send as a DM. |
 | `recipientApiId` | `String` | No | A Slack User Id for a direct message. Used when `notificationType` is `direct_message`. |
 | `recipientIdentifier` | `String` | No | A Salesforce User Id or email address for a direct message. Used when `notificationType` is `direct_message`. |
