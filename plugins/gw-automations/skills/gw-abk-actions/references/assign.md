@@ -29,7 +29,7 @@ SendSingleEmailNotificationAction.
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `assigneeId` | `Id` | No | The Id of the User or Salesforce Queue to assign to. |
-| `assigneeName` | `String` | No | Salesforce Queue name |
+| `assigneeName` | `String` | No | Salesforce Queue name, or a User/Queue Id string. Use when assigneeId and assigneeRecord are not available. If a name is provided, the Queue must exist and have a unique name. |
 | `assigneeRecord` | `SObject` | No | User or Salesforce Queue Record to assign item to. |
 | `assignmentDetails` | `String` | No | Any additional details about the assignment. |
 | `item` | `SObject` | No | The Salesforce object to assign if assigning a single item. |
@@ -45,18 +45,18 @@ SendSingleEmailNotificationAction.
 | `assignments` | `List<Assignment>` | The results of all item assignments. |
 
 **`Assignment` fields:**
-Actions such as AssignSingleItemAction and AssignMultiItemAction provide
-these to communicate the results of assignment. You can also use them as
-input into other actions like SendSingleEmailNotificationAction.
+Represents the result of a single item assignment. Produced by Directly Assign Items
+and Queue-based assignment actions. Can be passed as input to notification actions
+such as Send Single Email Notification.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `queue` | `String` | The Queue that was used to perform the assignment. This will either be an Id or name depending on how the Queue was specified by the action that produced this result. For Assignments that result from DirectAssignSingleItemAction this value will be null. |
-| `item` | `GenericSObject` | Wraps the SObject that was assigned. Flow does not currently handle SObjects very well so this wraps an SObject in a Flow-friendly interface. |
+| `queue` | `String` | The Gradient Works Queue used for the assignment — either an Id or name depending on how it was specified. Null for direct assignments (Directly Assign Items). |
+| `item` | `GenericSObject` | The assigned record wrapped in a Flow-friendly envelope. Key fields: `id` (record Id), `name` (display name), `typeName` (e.g. "Account"), `detailUrl` (Salesforce record URL), `realSObject` (the underlying record). |
 | `assignedTo` | `User` | The User that the item was assigned to. Only the Id, Email, Name, Alias fields will be available. Value will be null if item was assigned to a standard Salesforce Queue. |
 | `assignedToQueue` | `Group` | The standard Salesforce Queue that the item was assigned to. Only the Id, Email, Name fields will be available. Value will be null if item was assigned to a User. |
 | `previouslyAssignedTo` | `User` | The User the item was previously assigned to. Only the Id, Email, Name, Alias fields will be available. |
-| `success` | `Boolean` | Whether or not the assignment completed successfully |
-| `errorMessage` | `String` | Any error that occurred during assignment |
+| `success` | `Boolean` | True if the assignment completed successfully. |
+| `errorMessage` | `String` | Error message if success is false. |
 
 ---
