@@ -4,10 +4,8 @@ Actions for handling Gradient Works platform events.
 
 ## Convert ItemAssigned to Assignment
 
-When Gradient Works makes an assignment, it fires a Salesforce platform
-event of type `ItemAssigned__e`. This action is a utility that converts
-those events to an Assignment which can be used as an input to other
-actions.
+Deprecated. Use the assignment output from queue assignment actions directly
+instead of converting ItemAssigned__e events.
 
 ### Inputs
 
