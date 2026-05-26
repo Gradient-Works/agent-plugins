@@ -10,12 +10,9 @@ Use this action after performing an assignment to send an email notification
 to the person that received the assignment. Construct the email subject and
 body using merge fields and optionally BCC specific users.
 
-<aside class="notice">
-We recommend using an org-wide email address. Without it, Salesforce tries to
-use the email address of the user that invoked the Flow. If the Flow is
-invoked by a system user (such as a Flow triggered by a platform event),
-sending will fail.
-</aside>
+**Note:** We recommend specifying an org-wide email address via `orgWideEmailId`.
+Without one, Salesforce uses the email of the user that invoked the Flow — if the
+Flow is triggered by a system user (e.g. a platform event), sending will fail.
 
 ### Inputs
 

@@ -181,7 +181,7 @@ will be available.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `query` | `String` | Yes | The SOQL query to be executed. |
+| `query` | `String` | Yes | The SOQL query to be executed. Maximum 20,000 characters. |
 
 ### Outputs
 

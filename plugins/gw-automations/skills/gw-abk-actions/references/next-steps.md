@@ -111,7 +111,9 @@ If an error occurs, we will display the error in the `error` output
 
 Use this action to immediately create and assign Tasks to users.
 
-  You can access information about the created Tasks in the output.
+Use `relatedRecord` for the non-person record the Task is related to, such as
+an Account or Opportunity. Use `relatedPerson` for the Contact or Lead. Both
+can be specified together.
 
 ### Inputs
 
@@ -122,13 +124,13 @@ Use this action to immediately create and assign Tasks to users.
 | `subject` | `String` | Yes | Task Subject Line. |
 | `comments` | `String` | No | Any comments about the Task. |
 | `dueDate` | `Date` | No | A Due Date for the created Task. A Date or Datetime formula can be used or a date explicitly given. |
-| `relatedPerson` | `SObject` | No | The Contact or Lead related to the Task. |
-| `relatedPersonId` | `String` | No | The Contact or Lead Id related to the Task. |
-| `relatedRecord` | `SObject` | No | The nonhuman object the Task is related to, typically an Account, Opportunity, Campaign, etc. A full list of valid object types can be found [under WhatId for Task](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_task.htm). |
-| `relatedRecordId` | `String` | No | The nonhuman record Id related to the Task, typically an Id for an Account, Opportunity, Campaign, etc. |
+| `relatedPerson` | `SObject` | No | The Contact or Lead to relate the Task to. Provide this or `relatedPersonId`. |
+| `relatedPersonId` | `String` | No | The Id of the Contact or Lead to relate the Task to. Provide this or `relatedPerson`. |
+| `relatedRecord` | `SObject` | No | The non-person record to relate the Task to, such as an Account, Opportunity, or Campaign. Do not use for Contact or Lead — use `relatedPerson` instead. Provide this or `relatedRecordId`. |
+| `relatedRecordId` | `String` | No | The Id of the non-person record to relate the Task to. Provide this or `relatedRecord`. |
 | `taskData` | `String` | No | Additional Task fields to update upon Task creation. |
-| `taskOwner` | `SObject` | No | The User record to assign the Task to. |
-| `taskOwnerId` | `Id` | No | A User or Queue Id to assign the Task to. |
+| `taskOwner` | `SObject` | No | The User or Queue record to assign the Task to. Provide this or `taskOwnerId`. |
+| `taskOwnerId` | `Id` | No | The Id of the User or Queue to assign the Task to. Provide this or `taskOwner`. |
 
 ### Outputs
 
@@ -142,40 +144,30 @@ Use this action to immediately create and assign Tasks to users.
 
 **Action class:** `SendChatNotificationAction`
 
-<aside class="notice">
- The Gradient Works Slack app must be installed in your workspace
- to use this action. This action runs asynchronously and does not have any
- result outputs.
-</aside>
+**Note:** The Gradient Works Slack app must be installed in your workspace to use
+this action. This action runs asynchronously and has no outputs.
 
 Use this action to send a Slack message to a channel or as a direct message.
+Set `notificationType` to `channel` and provide `channel`, or set it to
+`direct_message` and provide one of `recipientRecord`, `recipientIdentifier`,
+or `recipientApiId`.
 
-The message body supports @ mentioning other users in a couple of ways:
-
-1. Using a Salesforce User record or Id (The User's email must match in Salesforce and Slack)
-2. Slack display name
-
-Need to show additional record information at a glance?
-
-Use the "Fields to Display" section of the action editor to customize what
-information we include about Salesforce records in the Slack message.
-
-To add a link to a record in the Slack message, add a record in the
-"Linked Records" section. We'll include a "View in Salesforce" button in the
-Slack message.
+To @ mention a Salesforce User in the message body, prefix their Salesforce
+User Id with `@` (e.g. `@005...`). The User's email must match in both
+Salesforce and Slack.
 
 ### Inputs
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `message` | `String` | Yes | The main message content. |
-| `channel` | `String` | No | A Slack channel id or name to send a message to |
+| `message` | `String` | Yes | The main message body. |
+| `channel` | `String` | No | A Slack channel id or name. Used when `notificationType` is `channel`. |
 | `fieldsJson` | `String` | No | List of fields to display in Slack message |
 | `linkedRecordsJson` | `String` | No | List of records to link to in Slack message |
-| `notificationType` | `String` | No | The type of message that will be sent. One of: Channel or Direct Message |
-| `recipientApiId` | `String` | No | A Slack User Id to send a direct message to |
-| `recipientIdentifier` | `String` | No | A Salesforce User Id or Email to send a direct message to |
-| `recipientRecord` | `User` | No | A Salesforce User record to send a direct message to |
+| `notificationType` | `String` | No | One of `channel` to send to a Slack channel, or `direct_message` to send as a DM. |
+| `recipientApiId` | `String` | No | A Slack User Id for a direct message. Used when `notificationType` is `direct_message`. |
+| `recipientIdentifier` | `String` | No | A Salesforce User Id or email address for a direct message. Used when `notificationType` is `direct_message`. |
+| `recipientRecord` | `User` | No | A Salesforce User record for a direct message. Used when `notificationType` is `direct_message`. |
 
 ### Outputs
 
