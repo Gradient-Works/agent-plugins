@@ -13,7 +13,8 @@ Set `updateImmediately` to false to perform the assignment without saving the ch
 useful when bulkifying flows that use a separate Update Records step.
 
 Use the `assignment` or `assignments` output to get details about what was assigned and to
-whom. Assignment objects can be passed as input to notification actions.
+whom. Assignment objects can be passed as input to notification actions such as
+Send Single Assignment Email or Send Slack Message.
 
 ### Inputs
 
@@ -22,7 +23,7 @@ whom. Assignment objects can be passed as input to notification actions.
 | `assigneeId` | `Id` | No | Id of the User or Queue to assign to. Provide one of assigneeId, assigneeRecord, or assigneeName. |
 | `assigneeName` | `String` | No | Queue name or User/Queue Id string. Provide one of assigneeId, assigneeRecord, or assigneeName. If a name is provided, the Queue must exist and have a unique name. |
 | `assigneeRecord` | `SObject` | No | User or Queue record to assign to. Provide one of assigneeId, assigneeRecord, or assigneeName. |
-| `assignmentDetails` | `String` | No | Any additional details about the assignment. |
+| `assignmentDetails` | `String` | No | Optional notes to record with this assignment. |
 | `item` | `SObject` | No | The record to assign. Provide item or items — not both. |
 | `itemField` | `String` | No | The field on the item to use for assignment. Defaults to OwnerId. Only applies to User assignments — Queue assignments always use OwnerId. |
 | `items` | `List<SObject>` | No | The records to assign. Provide item or items — not both. |
@@ -36,9 +37,8 @@ whom. Assignment objects can be passed as input to notification actions.
 | `assignments` | `List<Assignment>` | The results of all item assignments. |
 
 **`Assignment` fields:**
-Represents the result of a single item assignment. Produced by Directly Assign Items
-and Queue-based assignment actions. Can be passed as input to notification actions
-such as Send Single Email Notification.
+Represents the result of a single item assignment. Can be passed as input to notification actions
+such as Send Single Assignment Email or Send Slack Message.
 
 | Field | Type | Description |
 |-------|------|-------------|
