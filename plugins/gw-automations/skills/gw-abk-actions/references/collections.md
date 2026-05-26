@@ -6,7 +6,7 @@ Utility actions for building and querying data structures: record maps, SOQL que
 
 Takes a collection of records as `input` and the name of a field and builds
 a RecordMap where the keys are the values of the specified `keyField`. You
-can then use GWFXRecordMapGetAction to get a record based on a key.
+can then use Get Record from Record Map to get a record based on a key.
 
 To use the RecordMap later in your Flow, make sure to select
 `Store Output Variables` and assign it to a variable resource with
@@ -21,27 +21,27 @@ on its `Id`.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `input` | `List<SObject>` | Yes | A collection of input records to use for creating a RecordMap |
-| `keyField` | `String` | Yes | The field on each record containing the value to use for that record's key in the RecordMap |
+| `input` | `List<SObject>` | Yes | A collection of input records to use for creating a RecordMap. |
+| `keyField` | `String` | Yes | The field on each record containing the value to use for that record's key in the RecordMap. |
 
 ### Outputs
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `recordMap` | `RecordMap` | Contains records from the `input` collection that can be looked up using key values obtained from each item's `keyField` |
+| `recordMap` | `RecordMap` | Contains records from the `input` collection that can be looked up using key values obtained from each item's `keyField`. |
 
 **`RecordMap` fields:**
 A RecordMap provides a fast way to look up records based on a key using
-GWFXRecordMapGetAction. This allows you to create efficient "bulk" flows
+Get Record from Record Map. This allows you to create efficient "bulk" flows
 that let you fetch a large number of related records in one query that you
 can access in a loop without requiring multiple Get Records actions.
 
-To create a RecordMap, see GWFXBuildRecordMapFromFieldAction and
-GWFXBuildRecordMapFromLookupAction.
+To create a RecordMap, see Build Record Map from Field and
+Build Record Map from Lookup.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `size` | `Integer` | The number of records contained in the record map |
+| `size` | `Integer` | The number of records contained in the record map. |
 
 ---
 
@@ -72,9 +72,9 @@ limits and your Flow may run slowly.
 This action allows for a pattern like so:
 
 1. Use `Get Records` to retrieve a collection of Contacts
-2. Use GWFXBuildRecordMapFromLookupAction with the Contacts as `input` to get a RecordMap of related Accounts using `AccountId` as the `lookupField` and store the RecordMap to an output variable.
+2. Use Build Record Map from Lookup with the Contacts as `input` to get a RecordMap of related Accounts using `AccountId` as the `lookupField` and store the RecordMap to an output variable.
 3. Use a `Loop` over the collection of Contacts
-4. Use GWFXRecordMapGetAction inside the loop with `Contact.AccountId` as the key to get the related Account
+4. Use Get Record from Record Map inside the loop with `Contact.AccountId` as the key to get the related Account
 
 While this requires an extra step, it only uses 2 SOQL queries: one to get
 the list of contacts and one to retrieve all the related accounts. Your flow
@@ -84,9 +84,9 @@ will be much less likely to hit governor limits and will run more quickly.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `input` | `List<SObject>` | Yes | A collection of input records with lookup fields |
+| `input` | `List<SObject>` | Yes | A collection of input records with lookup fields. |
 | `lookupField` | `String` | Yes | The lookup field on each input record containing the reference to the record you want to put in the RecordMap. e.g. `AccountId` or `OwnerId`. |
-| `selectFields` | `String` | Yes | A commma-delimited list of fields on the related object you want to include. e.g. `Id, Name, CustomField__c`. You must specify at least one field. |
+| `selectFields` | `String` | Yes | A comma-delimited list of fields on the related object you want to include. e.g. `Id, Name, CustomField__c`. You must specify at least one field. |
 
 ### Outputs
 
@@ -96,16 +96,16 @@ will be much less likely to hit governor limits and will run more quickly.
 
 **`RecordMap` fields:**
 A RecordMap provides a fast way to look up records based on a key using
-GWFXRecordMapGetAction. This allows you to create efficient "bulk" flows
+Get Record from Record Map. This allows you to create efficient "bulk" flows
 that let you fetch a large number of related records in one query that you
 can access in a loop without requiring multiple Get Records actions.
 
-To create a RecordMap, see GWFXBuildRecordMapFromFieldAction and
-GWFXBuildRecordMapFromLookupAction.
+To create a RecordMap, see Build Record Map from Field and
+Build Record Map from Lookup.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `size` | `Integer` | The number of records contained in the record map |
+| `size` | `Integer` | The number of records contained in the record map. |
 
 ---
 
@@ -127,7 +127,7 @@ be removed.
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `field` | `String` | Yes | The name of the field to use to get the value for the collection. All values will be turned into text, regardless of the field's data type. |
-| `input` | `List<SObject>` | Yes | The collection of records to get values from |
+| `input` | `List<SObject>` | Yes | The collection of records to get values from. |
 | `unique` | `Boolean` | No | If true, remove duplicates. Defaults to false. |
 
 ### Outputs
@@ -140,12 +140,10 @@ be removed.
 
 ## Execute SOQL
 
-<aside class="warning">
-This is an advanced action. If your query is not specific enough, your flow
-may run slowly or fail. Only use this if you have a thorough understanding
-of SOQL and the built-in Get Records action is too restrictive to do what
-you need.
-</aside>
+**Note:** This is an advanced action. If your query is not specific enough,
+your flow may run slowly or fail. Only use this if you have a thorough
+understanding of SOQL and the built-in Get Records action is too restrictive
+to do what you need.
 
 Takes a [SOQL query](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm)
 and executes it within a Flow, retrieving the records according to the
@@ -157,9 +155,9 @@ whether their Role name contains the word "Sales". Using `Get Records` will
 require you to use OR conditions with hard-coded Role Ids. Using this
 action, you can use SOQL's built-in [relationship queries](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_relationships.htm) like so:
 
-<code class="code-block">
+```
 SELECT Id, Name, Email FROM User WHERE UserRole.Name LIKE '%Sales%'
-</code>
+```
 
 Other use cases for this include IN/NOT IN queries or LIMIT clauses to
 retrieve only a subset of records.
@@ -175,7 +173,7 @@ will be available.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `query` | `String` | Yes | The SOQL query to be executed |
+| `query` | `String` | Yes | The SOQL query to be executed. |
 
 ### Outputs
 
@@ -193,9 +191,9 @@ will commonly be used inside a `Loop` to efficiently retrieve a related record.
 For example, consider the following Flow structure:
 
 1. Use `Get Records` to retrieve a collection of Contacts
-2. Use GWFXBuildRecordMapFromLookupAction to get a RecordMap of related Accounts using their `Id` as the key
+2. Use Build Record Map from Lookup to get a RecordMap of related Accounts using their `Id` as the key
 3. Use a `Loop` over the collection of Contacts
-4. Use GWFXRecordMapGetAction inside the loop with `Contact.AccountId` as the key to get the related Account
+4. Use Get Record from Record Map inside the loop with `Contact.AccountId` as the key to get the related Account
 
 This approach ensures that your Flow will run efficiently within the
 [Salesforce Flow limits](https://help.salesforce.com/articleView?id=sf.flow_considerations.htm&type=5) by reducing queries and CPU time.
@@ -204,8 +202,8 @@ This approach ensures that your Flow will run efficiently within the
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `key` | `String` | Yes | The key (usually an Id) to use for looking up a particular record |
-| `recordMap` | `RecordMap` | Yes | The RecordMap from a previous action to use for retrieval |
+| `key` | `String` | Yes | The key (usually an Id) to use for looking up a particular record. |
+| `recordMap` | `RecordMap` | Yes | The RecordMap from a previous action to use for retrieval. |
 
 ### Outputs
 
