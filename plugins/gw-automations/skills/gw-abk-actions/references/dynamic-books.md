@@ -13,20 +13,20 @@ specified User based on the User's assigned Target Book.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `accountId` | `Id` | Yes |  |
-| `userId` | `Id` | Yes |  |
+| `accountId` | `Id` | Yes | The Id of the Account to check eligibility for. |
+| `userId` | `Id` | Yes | The Id of the User to check eligibility for. |
 
 ### Outputs
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `errorMessage` | `String` | Message describing any errors during action execution |
-| `isEligibleForAssignment` | `Boolean` | Whether or not the Account is eligible for assignment based on Target Book criteria and a User's available capacity |
-| `isSuccess` | `Boolean` | Whether the action completed successfully or not |
-| `isTargetBookMatch` | `Boolean` | Whether or not the Account matches any Target Book Segment criteria |
-| `maxTargetBookCapacity` | `Decimal` | The User's Target Book Max Distribution Amount |
-| `reason` | `String` | The reason an Account is not eligible for assignment to the User |
-| `usedTargetBookCapacity` | `Decimal` | The User's currently used Target Book capacity |
+| `errorMessage` | `String` | Error message if the action did not complete successfully. |
+| `isEligibleForAssignment` | `Boolean` | True if the Account is eligible for assignment based on Target Book criteria and the User's available capacity. |
+| `isSuccess` | `Boolean` | True if the action completed successfully. |
+| `isTargetBookMatch` | `Boolean` | True if the Account matches at least one Target Book Segment. |
+| `maxTargetBookCapacity` | `Decimal` | The User's maximum capacity as defined by their Target Book. |
+| `reason` | `String` | The reason the Account is not eligible for assignment. Null when `isEligibleForAssignment` is true. |
+| `usedTargetBookCapacity` | `Decimal` | The User's currently used Target Book capacity. |
 
 ---
 
@@ -46,8 +46,8 @@ use Bookbuilder to view retrieval results and history.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `distributionDefinitionIdentifier` | `String` | No | The Retrieval Template Id or Name from Bookbuilder to be used for this Retrieval. |
-| `distributionDefinitionRecord` | `DistributionDefinition__c` | No | Retrieval Template from Bookbuilder to be used for this Retrieval. |
+| `distributionDefinitionIdentifier` | `String` | No | The Id or Name of the Retrieval Template to run. Provide this or `distributionDefinitionRecord`. |
+| `distributionDefinitionRecord` | `DistributionDefinition__c` | No | The Retrieval Template record to run. Provide this or `distributionDefinitionIdentifier`. |
 
 ### Outputs
 
