@@ -28,10 +28,10 @@ Limitations:
 * Subflow outputs are not accessible from this action
 
 `flowInputData` format — a JSON object where each key is a subflow variable API name.
-Use Flow merge field syntax to reference variables from the calling Flow:
+The `value` field accepts a literal string or a Flow merge field reference:
 
 ```
-{"variableName": {"value": "{!callingFlowVariable}", "dataType": "<type>"}, ...}
+{"myVar": {"value": "literalValue", "dataType": "String"}, "otherId": {"value": "{!recordId}", "dataType": "String"}}
 ```
 
 Supported `dataType` values: `String`, `Integer`, `Number`, `Boolean`.
