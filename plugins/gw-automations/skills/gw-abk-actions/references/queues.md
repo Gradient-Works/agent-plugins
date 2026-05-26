@@ -289,20 +289,16 @@ _None._
 
 **Action class:** `AssignAndScheduleSingleItemAction`
 
-Note: This action can only be used in Screen flows, one item at a time.
+**Note:** This action can only be used in Screen flows, one item at a time.
 Scheduling must be enabled in your Gradient Works configuration.
 
-Looks through the list of users associated with a Gradient Works Queue and
-schedules a meeting with the user who was least recently assigned and is free
-during the provided meeting time. The item will also be assigned to this user.
-The item may be of any type (e.g. Account, Lead, etc). The assignment is
-performed immediately.
+Schedules a meeting with the user who was least recently assigned and is free
+during the provided meeting time, then assigns the item to that user.
+The item may be of any type (e.g. Account, Lead, etc).
 
-By default, if there are no users with calendar availability at the requested
-time, we will double book the user who was least recently assigned and assign
-the item to that user. If you prefer that we do not double book a user
-and instead do not perform any assignment, specify `doNotAssign` as the
-`ifNoneAvailable` input.
+By default, if no users have calendar availability at the requested time,
+the action double-books the least recently assigned user. Set `ifNoneAvailable`
+to `doNotAssign` to skip assignment instead of double-booking.
 
 The assignment output contains details about the assigned user and whether the assignment
 succeeded. It can be passed as input to notification actions such as

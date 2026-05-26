@@ -10,11 +10,6 @@ Takes a collection of records as `input` and the name of a field and builds
 a RecordMap where the keys are the values of the specified `keyField`. You
 can then use Get Record from Record Map to get a record based on a key.
 
-To use the RecordMap later in your Flow, make sure to select
-`Store Output Variables` and assign it to a variable resource with
-a data type of `Apex-Defined` and an apex class of `GradientWorks__RecordMap`.
-When creating the resource, **do not** check "Allow multiple values (collection)".
-
 For example, if you specify `input` as a collection of Leads and `keyField`
 as `Id`, this will generate a RecordMap you can use to look up a Lead based
 on its `Id`.
@@ -56,11 +51,6 @@ specified as `lookupField`. This will then query for all the related records
 of the object specified by the `lookupField`. The fields loaded for the
 related records are defined by `selectFields`. This provides an efficient
 way to query for a large number of related records at once.
-
-To use the RecordMap later in your Flow, make sure to select
-`Store Output Variables` and assign it to a variable resource with
-a data type of `Apex-Defined` and an apex class of `GradientWorks__RecordMap`.
-When creating the resource, **do not** check "Allow multiple values (collection)".
 
 For example, consider the following Flow structure:
 
@@ -170,12 +160,7 @@ SELECT Id, Name, Email FROM User WHERE UserRole.Name LIKE '%Sales%'
 Other use cases for this include IN/NOT IN queries or LIMIT clauses to
 retrieve only a subset of records.
 
-To use the results, you'll need to store the output in a variable of type
-Record with the Object Type set to the object you're querying (e.g. User in
-the example above). Be sure to specify that the variable is a Collection.
-
-When you use records retrieved by this action, only the fields you specify
-will be available.
+Only the fields specified in the SELECT clause will be available on the returned records.
 
 ### Inputs
 
