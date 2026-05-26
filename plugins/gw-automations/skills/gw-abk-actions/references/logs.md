@@ -13,14 +13,14 @@ your Flows.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `level` | `Integer` | Yes | The importance level of the log message: from TRACE (lowest level) to ERROR (highest level). |
-| `message` | `String` | Yes | The message to include in the log. Merge fields will be merged before publishing the log message. |
-| `flowInterviewGuid` | `String` | No | A unique identifier for the running Flow "interview". This will be automatically provided. |
+| `level` | `Integer` | Yes | The Salesforce LoggingLevel ordinal for the message: 1=ERROR, 2=WARN, 3=INFO, 4=DEBUG, 5=FINE, 6=FINER, 7=FINEST. |
+| `message` | `String` | Yes | The message to log. Flow merge fields are resolved before the message is published. |
+| `flowInterviewGuid` | `String` | No | Set this to `$Flow.InterviewGuid`. |
 
 ### Outputs
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `message` | `String` | The message published to the log |
+| `message` | `String` | The message published to the log. |
 
 ---
