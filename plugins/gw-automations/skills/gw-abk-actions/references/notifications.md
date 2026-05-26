@@ -11,14 +11,10 @@ to the person that received the assignment. The email is sent to
 `assignment.assignedTo.Email`. If the assignment was to a Salesforce Queue,
 `assignedTo` is null and the action does nothing.
 
-The `body` is rendered as HTML. Both `subject` and `body` support the following
-merge fields resolved against the assignment:
-
- * `{!item.name}` — the display name of the assigned record
- * `{!item.id}` — the Id of the assigned record
- * `{!item.detailUrl}` — the Salesforce URL of the assigned record
- * `{!assignedTo.Name}` — the full name of the assignee
- * `{!assignedTo.Email}` — the email address of the assignee
+The `body` is rendered as HTML. Both `subject` and `body` support `{!property}`
+merge fields resolved against any property on the `assignment` object
+(e.g. `{!item.name}`, `{!item.detailUrl}`, `{!assignedTo.Name}`,
+`{!previouslyAssignedTo.Name}`, `{!queue}`).
 
 **Note:** We recommend specifying an org-wide email address via `orgWideEmailId`.
 Without one, Salesforce uses the email of the user that invoked the Flow — if the
