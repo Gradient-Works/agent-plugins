@@ -4,38 +4,29 @@ Direct assignment actions.
 
 ## Directly Assign Items
 
-Use this action to assign one or more items directly to a specific User or
-a Salesforce Queue.
+Assigns one or more items directly to a specific User or Salesforce Queue.
 
-For assignments to Users, we default to using the OwnerId field. If you want to use
-a different field for assignments to a User, specify that value for the
-assignment field in the editor.
-This must be a User lookup field on the item being assigned.
+For User assignments, defaults to OwnerId. Set `itemField` to a different User lookup
+field API name if you need to assign via another field. Queue assignments always use OwnerId.
 
-Assignments to Salesforce Queues will always use the OwnerId field.
+Set `updateImmediately` to false to perform the assignment without saving the changes immediately —
+useful when bulkifying flows that use a separate Update Records step.
 
-By default, the assignment is updated immediately in the database. If you
-want to perform the assignments but delay the update (helpful in bulkifying
-flows), change Update Item in the editor to "Later, Using Update Records".
-This will set `updateImmediately` to false.
-
-Use the `assignment` or `assignments` output to see information about the
-assignments that were performed as part of a Flow run. You can use the individual
-Assignment objects as an input to other actions such as
-SendSingleEmailNotificationAction.
+Use the `assignment` or `assignments` output to get details about what was assigned and to
+whom. Assignment objects can be passed as input to notification actions.
 
 ### Inputs
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `assigneeId` | `Id` | No | The Id of the User or Salesforce Queue to assign to. |
-| `assigneeName` | `String` | No | Salesforce Queue name, or a User/Queue Id string. Use when assigneeId and assigneeRecord are not available. If a name is provided, the Queue must exist and have a unique name. |
-| `assigneeRecord` | `SObject` | No | User or Salesforce Queue Record to assign item to. |
+| `assigneeId` | `Id` | No | Id of the User or Queue to assign to. Provide one of assigneeId, assigneeRecord, or assigneeName. |
+| `assigneeName` | `String` | No | Queue name or User/Queue Id string. Provide one of assigneeId, assigneeRecord, or assigneeName. If a name is provided, the Queue must exist and have a unique name. |
+| `assigneeRecord` | `SObject` | No | User or Queue record to assign to. Provide one of assigneeId, assigneeRecord, or assigneeName. |
 | `assignmentDetails` | `String` | No | Any additional details about the assignment. |
-| `item` | `SObject` | No | The Salesforce object to assign if assigning a single item. |
-| `itemField` | `String` | No | The field on the item to use for User assignment. Defaults to OwnerId. |
-| `items` | `List<SObject>` | No | The List of Salesforce objects to assign. |
-| `updateImmediately` | `Boolean` | No | Set to false to perform the assignment but not to update the item record in the database. Defaults to true. |
+| `item` | `SObject` | No | The record to assign. Provide item or items — not both. |
+| `itemField` | `String` | No | The field on the item to use for assignment. Defaults to OwnerId. Only applies to User assignments — Queue assignments always use OwnerId. |
+| `items` | `List<SObject>` | No | The records to assign. Provide item or items — not both. |
+| `updateImmediately` | `Boolean` | No | Set to false to perform the assignment without saving the changes immediately. Defaults to true. |
 
 ### Outputs
 
