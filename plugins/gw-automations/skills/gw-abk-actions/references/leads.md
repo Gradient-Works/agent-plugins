@@ -4,6 +4,8 @@ Actions for converting leads.
 
 ## Convert Lead
 
+**Action class:** `ConvertLeadAction`
+
 Converts a Lead into an Account, Contact, and optionally an Opportunity.
 Pass an existing Account, Contact, or Opportunity to merge the lead into those records;
 any that are omitted will be created automatically.
@@ -54,6 +56,8 @@ Pass a list of these to Convert Multiple Leads to execute conversions in bulk.
 ---
 
 ## Convert Multiple Leads
+
+**Action class:** `MultiConvertLeadAction`
 
 Converts multiple Leads in bulk. Accepts a list of staged ConvertLeadRequest objects —
 obtain these by calling Convert Lead with convertImmediately=false and collecting the

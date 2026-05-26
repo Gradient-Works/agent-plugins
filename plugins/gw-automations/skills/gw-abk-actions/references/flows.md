@@ -4,6 +4,8 @@ Lifecycle actions that bookend a Gradient Works flow. Place Start at the top and
 
 ## Execute Subflow
 
+**Action class:** `GWFXExecuteSubflowAction`
+
 <aside class="warning">
 This is an advanced action. If your subflow is not optimized or this action
 is used repeatedly (e.g. in a loop), your Flow may run poorly or fail.
@@ -46,6 +48,8 @@ _None._
 
 ## Failed
 
+**Action class:** `FailedFlowAction`
+
 Pair this action with StartFlowAction. Use it inside a fault path in a Flow
 to ensure proper Flow execution error tracing.
 
@@ -67,6 +71,8 @@ to ensure proper Flow execution error tracing.
 
 ## Finish
 
+**Action class:** `FinishFlowAction`
+
 Pair this action with StartFlowAction. Use it at the very end of the Flow
 to ensure proper Flow execution tracing.
 
@@ -86,6 +92,8 @@ to ensure proper Flow execution tracing.
 ---
 
 ## Resume
+
+**Action class:** `ResumeFlowAction`
 
 Pair this with StartFlowAction and FinishFlowAction. Use this action after a
 Screen Flow action to resume execution tracing for individual executions of
@@ -111,6 +119,8 @@ lifecycle.
 ---
 
 ## Start
+
+**Action class:** `StartFlowAction`
 
 Use this action at the very beginning of a Flow to turn on execution tracing
 for individual executions of the Flow ("interviews" in Flow-speak). Make sure

@@ -4,6 +4,8 @@ Actions for checking account eligibility against target books and triggering ret
 
 ## Check Account Eligibility
 
+**Action class:** `CheckTargetBookEligibilityAction`
+
 **Note:** Bookbuilder must be enabled to use this action.
 
 Use this action to determine whether an Account is eligible for assignment to the
@@ -31,6 +33,8 @@ specified User based on the User's assigned Target Book.
 ---
 
 ## Retrieval
+
+**Action class:** `AsyncRetrievalAction`
 
 **Note:** Bookbuilder must be enabled to use this action.
 

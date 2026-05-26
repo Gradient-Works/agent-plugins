@@ -32,6 +32,8 @@ CHILD_AGGREGATE ranker: `{"kind":"CHILD_AGGREGATE","order":"HIGHER_IS_BETTER|LOW
 
 ## Match Account to Account
 
+**Action class:** `MatchAccountToAccountAction`
+
 Flow action that matches one or more subject Accounts to candidate Accounts using
 configurable match criteria, optional filters, and optional rankers.
 Returns one AccountToAccountMatch per input subject Account, each containing the
@@ -69,6 +71,8 @@ executing MatchAccountToAccountAction.
 ---
 
 ## Match Lead to Account
+
+**Action class:** `MatchLeadToAccountAction`
 
 Flow action that matches one or more subject Leads to candidate Accounts using
 configurable match criteria, optional filters, and optional rankers.
@@ -109,6 +113,8 @@ executing MatchLeadToAccountAction.
 
 ## Match Lead to Contact
 
+**Action class:** `MatchLeadToContactAction`
+
 Flow action that matches one or more subject Leads to candidate Contacts using
 configurable match criteria, optional filters, and optional rankers.
 Returns one LeadToContactMatch per input subject Lead, each containing the
@@ -148,6 +154,8 @@ The bestMatch Contact is queried for AccountId to support lead conversion.
 ---
 
 ## Match Lead to Lead
+
+**Action class:** `MatchLeadToLeadAction`
 
 Flow action that matches one or more subject Leads to candidate Leads using
 configurable match criteria, optional filters, and optional rankers.

@@ -4,6 +4,8 @@ Post-assignment actions: creating tasks, enrolling prospects in cadences, sendin
 
 ## Add Person to Campaign
 
+**Action class:** `AddProspectToCampaignAction`
+
 Use this action to assign a person (Lead or Contact) to an existing
 Campaign. If the person already exists in the Campaign, the action will
 return the existing Campaign Member.
@@ -43,6 +45,8 @@ Record that was created or updated.
 
 ## Add Person to Sales Engagement Cadence
 
+**Action class:** `AddProspectToCadenceAction`
+
 <aside class="notice">
 Authentication with a Sales Engagement Platform is required to use this action.
 This action runs asynchronously and does not have any result outputs.
@@ -70,6 +74,8 @@ _None._
 ---
 
 ## Check Person Enrollment in Cadence
+
+**Action class:** `ProspectEnrollmentInCadenceAction`
 
 Use this action to check whether or not a Person is already enrolled in
 a Sales Engagement Cadence.
@@ -101,6 +107,8 @@ If an error occurs, we will display the error in the `error` output
 
 ## Create Task
 
+**Action class:** `CreateTaskAction`
+
 Use this action to immediately create and assign Tasks to users.
 
   You can access information about the created Tasks in the output.
@@ -131,6 +139,8 @@ Use this action to immediately create and assign Tasks to users.
 ---
 
 ## Send Slack Message
+
+**Action class:** `SendChatNotificationAction`
 
 <aside class="notice">
  The Gradient Works Slack app must be installed in your workspace

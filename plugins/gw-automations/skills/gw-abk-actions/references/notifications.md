@@ -4,6 +4,8 @@ Actions for sending assignment notifications.
 
 ## Send Single Assignment Email
 
+**Action class:** `SendSingleEmailNotificationAction`
+
 Use this action after performing an assignment to send an email notification
 to the person that received the assignment. Construct the email subject and
 body using merge fields and optionally BCC specific users.

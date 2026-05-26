@@ -4,6 +4,8 @@ Utility actions for building and querying data structures: record maps, SOQL que
 
 ## Build Record Map from Field
 
+**Action class:** `GWFXBuildRecordMapFromFieldAction`
+
 Takes a collection of records as `input` and the name of a field and builds
 a RecordMap where the keys are the values of the specified `keyField`. You
 can then use Get Record from Record Map to get a record based on a key.
@@ -46,6 +48,8 @@ Build Record Map from Lookup.
 ---
 
 ## Build Record Map from Lookup
+
+**Action class:** `GWFXBuildRecordMapFromLookupAction`
 
 Takes a collection of records as `input` and the name of a lookup field
 specified as `lookupField`. This will then query for all the related records
@@ -111,6 +115,8 @@ Build Record Map from Lookup.
 
 ## Build Text Collection from Field
 
+**Action class:** `GWFXBuildTextCollectionFromFieldAction`
+
 Takes a collection of records as `input` and the name of a field and builds
 a text collection containing the values of the specified `field`.
 
@@ -139,6 +145,8 @@ be removed.
 ---
 
 ## Execute SOQL
+
+**Action class:** `GWFXExecuteSOQLQueryAction`
 
 **Note:** This is an advanced action. If your query is not specific enough,
 your flow may run slowly or fail. Only use this if you have a thorough
@@ -184,6 +192,8 @@ will be available.
 ---
 
 ## Get Record from Record Map
+
+**Action class:** `GWFXRecordMapGetAction`
 
 Retrieve a particular record from a RecordMap using the specified key. This
 will commonly be used inside a `Loop` to efficiently retrieve a related record.

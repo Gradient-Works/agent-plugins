@@ -4,6 +4,8 @@ Actions for reading and updating rep capacity and weight on a Gradient Works que
 
 ## Get Used Capacity
 
+**Action class:** `GetUsedCapacityAction`
+
 Use this action after configuring [Capacity Meters](#capacity-meter) to check
 a Gradient Works Queue User's current used capacity, giving you more control
 before performing assignments.
@@ -30,6 +32,8 @@ a user has available capacity to be assigned an item or not.
 ---
 
 ## Update Capacity
+
+**Action class:** `UpdateQueueUserCapacityAction`
 
 This action allows you to build flows that update the capacity values on
 users associated with a Queue. This allows you to control the available
@@ -67,6 +71,8 @@ _None._
 ---
 
 ## Update Weight
+
+**Action class:** `UpdateQueueUserWeightAction`
 
 This action allows you to build flows that update the weight values on
 users associated with a Queue. This allows you to control the relative

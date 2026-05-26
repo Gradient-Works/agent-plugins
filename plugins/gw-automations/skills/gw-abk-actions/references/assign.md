@@ -4,6 +4,8 @@ Direct assignment actions.
 
 ## Directly Assign Items
 
+**Action class:** `DirectAssignSingleItemAction`
+
 Assigns one or more items directly to a specific User or Salesforce Queue.
 
 For User assignments, defaults to OwnerId. Set `itemField` to a different User lookup

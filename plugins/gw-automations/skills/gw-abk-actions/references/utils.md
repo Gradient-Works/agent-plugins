@@ -4,6 +4,8 @@ Utility actions for miscellaneous flow operations.
 
 ## Evaluate Domain against Denylist
 
+**Action class:** `GWFXEvaluateDomainAction`
+
 Takes a text `input` and extracts a domain (if possible) and compares that
 to the domains denylist you configured. The `result` will contain a
 DomainEvaluationResult that specifies the extracted domain and whether the
