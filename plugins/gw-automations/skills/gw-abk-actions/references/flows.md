@@ -27,15 +27,14 @@ Limitations:
 * Subflows must be active and auto-launched without a trigger
 * Subflow outputs are not accessible from this action
 
-`flowInputData` format — a JSON object where each key is a subflow variable API name
-and the value specifies the data to pass:
+`flowInputData` format — a JSON object where each key is a subflow variable API name.
+Use Flow merge field syntax to reference variables from the calling Flow:
 
 ```
-{"variableName": {"value": "<string>", "dataType": "<type>"}, ...}
+{"variableName": {"value": "{!callingFlowVariable}", "dataType": "<type>"}, ...}
 ```
 
-All values must be provided as strings. Supported `dataType` values:
-`String`, `Integer`, `Number`, `Boolean`.
+Supported `dataType` values: `String`, `Integer`, `Number`, `Boolean`.
 
 ### Inputs
 
