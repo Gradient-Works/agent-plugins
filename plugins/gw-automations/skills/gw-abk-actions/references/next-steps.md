@@ -1,6 +1,6 @@
 # Next Steps
 
-Post-assignment actions: creating tasks, enrolling prospects in cadences, sending Slack or email notifications.
+Post-assignment actions: creating tasks, adding people to campaigns, enrolling prospects in cadences, checking cadence enrollment, and sending Slack messages.
 
 ## Add Person to Campaign
 
