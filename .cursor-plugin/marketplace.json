@@ -12,7 +12,10 @@
     {
       "name": "gw-automations",
       "source": "gw-automations",
-      "description": "Gradient Works automation plugin exposing the gw-abk-actions skill for Salesforce flow configuration"
+      "description": "Gradient Works automation plugin exposing the gw-abk-actions skill for Salesforce flow configuration",
+      "author": {
+        "name": "Gradient Works"
+      }
     }
   ]
 }

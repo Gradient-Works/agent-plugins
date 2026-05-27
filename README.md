@@ -40,6 +40,15 @@ agent-plugins/
 
 ### Codex
 
+**From the app:**
+
+1. Go to the **Plugins** section
+2. Click the dropdown (defaults to **Built by OpenAI**) and select **+ Add more**
+3. Paste `https://github.com/Gradient-Works/agent-plugins` as the **Source** and click **Add marketplace**
+4. Select **Gradient Works Plugins** from the dropdown and install **gw-automations**
+
+**From the CLI:**
+
 ```shell
 codex plugin marketplace add Gradient-Works/agent-plugins
 ```
@@ -48,9 +57,17 @@ Then browse and install **gw-automations** from the Plugin Directory.
 
 ### Cursor
 
+**Individual users:**
+
+1. Go to **Settings → Plugins**
+2. Paste `https://github.com/Gradient-Works/agent-plugins` in the search bar and add the marketplace
+3. Install **Gradient Works Automations** (gw-automations) from the marketplace panel
+
+**Team/Enterprise (distribute to your whole team):**
+
 1. Go to **Dashboard → Settings → Plugins → Team Marketplaces**
 2. Click **Import** and paste `https://github.com/Gradient-Works/agent-plugins`
-3. Install **gw-automations** from the marketplace panel
+3. Set **Gradient Works Automations** (gw-automations) as required or optional for your team
 
 ## 🔌 Plugins
 
