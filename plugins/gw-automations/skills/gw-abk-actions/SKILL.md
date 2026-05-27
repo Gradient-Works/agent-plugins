@@ -42,13 +42,13 @@ Based on the argument or context:
 For each relevant category, read:
 
 ```
-${CLAUDE_SKILL_DIR}/references/<slug>.md
+./references/<slug>.md
 ```
 
 For example:
 ```
-${CLAUDE_SKILL_DIR}/references/matching.md
-${CLAUDE_SKILL_DIR}/references/queues.md
+./references/matching.md
+./references/queues.md
 ```
 
 ### Step 3: Return the information
