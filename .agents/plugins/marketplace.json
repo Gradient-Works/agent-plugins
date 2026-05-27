@@ -1,0 +1,19 @@
+{
+  "name": "gradient-works-plugins",
+  "interface": {
+    "displayName": "Gradient Works Plugins"
+  },
+  "plugins": [
+    {
+      "name": "gw-automations",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gw-automations"
+      },
+      "policy": {
+        "installation": "AVAILABLE"
+      },
+      "description": "Gradient Works automation plugin exposing the gw-abk-actions skill for Salesforce flow configuration"
+    }
+  ]
+}
