@@ -48,8 +48,8 @@ Then browse and install **gw-automations** from the Plugin Directory.
 
 ### Cursor
 
-1. Go to **Dashboard → Settings → Plugins → Team Marketplaces**
-2. Click **Import** and paste `https://github.com/Gradient-Works/agent-plugins`
+1. Go to **Settings → Plugins**
+2. Paste `https://github.com/Gradient-Works/agent-plugins` in the search bar and add the marketplace
 3. Install **gw-automations** from the marketplace panel
 
 ## 🔌 Plugins
