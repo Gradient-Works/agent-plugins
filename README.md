@@ -40,6 +40,15 @@ agent-plugins/
 
 ### Codex
 
+**From the app:**
+
+1. Go to the **Plugins** section
+2. Click the dropdown (defaults to **Built by OpenAI**) and select **+ Add more**
+3. Paste `https://github.com/Gradient-Works/agent-plugins` as the **Source** and click **Add marketplace**
+4. Select **Gradient Works Plugins** from the dropdown and install **gw-automations**
+
+**From the CLI:**
+
 ```shell
 codex plugin marketplace add Gradient-Works/agent-plugins
 ```
