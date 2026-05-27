@@ -3,6 +3,7 @@
   "displayName": "Gradient Works Automations",
   "version": "0.1.0",
   "description": "Gradient Works automation plugin exposing the gw-abk-actions skill for Salesforce flow configuration",
+  "homepage": "https://github.com/Gradient-Works/agent-plugins/blob/main/README.md",
   "author": {
     "name": "Gradient Works"
   }
