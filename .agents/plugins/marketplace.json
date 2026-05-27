@@ -1,5 +1,10 @@
 {
   "name": "gradient-works-plugins",
+  "description": "Official Gradient Works plugins",
+  "owner": {
+    "name": "Gradient Works",
+    "email": "revops@gradient.works"
+  },
   "interface": {
     "displayName": "Gradient Works Plugins"
   },
@@ -13,7 +18,10 @@
       "policy": {
         "installation": "AVAILABLE"
       },
-      "description": "Gradient Works automation plugin exposing the gw-abk-actions skill for Salesforce flow configuration"
+      "description": "Gradient Works automation plugin exposing the gw-abk-actions skill for Salesforce flow configuration",
+      "author": {
+        "name": "Gradient Works"
+      }
     }
   ]
 }
