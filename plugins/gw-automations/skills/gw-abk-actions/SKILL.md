@@ -56,3 +56,4 @@ For example:
 
 - When **interpreting** a flow config: explain what each action node does, what its inputs mean, and what outputs it produces.
 - When **building** a flow: list the relevant actions with their required and optional inputs, and show how outputs from one action can feed into inputs of the next.
+  - When an action input has type `SObject` or `List<SObject>`, create a flow variable of the appropriate concrete Salesforce object type (e.g. `Account`, `Lead`) to hold the record(s), then reference that variable as the input value. Do not pass `$Record` directly — it will cause errors when opening the flow in the Salesforce UI.

@@ -4,7 +4,7 @@ Actions for sending assignment notifications.
 
 ## Send Single Assignment Email
 
-**Action class:** `SendSingleEmailNotificationAction`
+**`actionName`:** `GradientWorks__SendSingleEmailNotificationAction`
 
 Use this action after performing an assignment to send an email notification
 to the person that received the assignment. The email is sent to

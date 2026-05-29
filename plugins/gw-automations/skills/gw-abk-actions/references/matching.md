@@ -9,7 +9,7 @@ and rankers. These are normally populated by the Gradient Works custom Flow edit
 
 ### matchCriteriaData
 JSON array of match rules that determine which candidate records are considered potential matches.
-Each rule: `{"subjectField":"<SubjectField>","matchType":"Domain|Exact|Fuzzy","candidateField":"<CandidateField>"}`
+Each rule: `{"subjectField":"<SubjectField>","matchType":"DOMAIN|EXACT|FUZZY","candidateField":"<CandidateField>"}`
 
 ### filterData
 Applied after match criteria to narrow candidates — only candidates satisfying all conditions are included in results.
@@ -32,7 +32,7 @@ CHILD_AGGREGATE ranker: `{"kind":"CHILD_AGGREGATE","order":"HIGHER_IS_BETTER|LOW
 
 ## Match Account to Account
 
-**Action class:** `MatchAccountToAccountAction`
+**`actionName`:** `GradientWorks__MatchAccountToAccountAction`
 
 Flow action that matches one or more subject Accounts to candidate Accounts using
 configurable match criteria, optional filters, and optional rankers.
@@ -72,7 +72,7 @@ executing MatchAccountToAccountAction.
 
 ## Match Lead to Account
 
-**Action class:** `MatchLeadToAccountAction`
+**`actionName`:** `GradientWorks__MatchLeadToAccountAction`
 
 Flow action that matches one or more subject Leads to candidate Accounts using
 configurable match criteria, optional filters, and optional rankers.
@@ -113,7 +113,7 @@ executing MatchLeadToAccountAction.
 
 ## Match Lead to Contact
 
-**Action class:** `MatchLeadToContactAction`
+**`actionName`:** `GradientWorks__MatchLeadToContactAction`
 
 Flow action that matches one or more subject Leads to candidate Contacts using
 configurable match criteria, optional filters, and optional rankers.
@@ -155,7 +155,7 @@ The bestMatch Contact is queried for AccountId to support lead conversion.
 
 ## Match Lead to Lead
 
-**Action class:** `MatchLeadToLeadAction`
+**`actionName`:** `GradientWorks__MatchLeadToLeadAction`
 
 Flow action that matches one or more subject Leads to candidate Leads using
 configurable match criteria, optional filters, and optional rankers.
