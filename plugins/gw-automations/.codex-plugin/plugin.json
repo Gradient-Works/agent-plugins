@@ -1,7 +1,7 @@
 {
   "name": "gw-automations",
   "displayName": "Gradient Works Automations",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Gradient Works automation plugin exposing the gw-abk-actions skill for Salesforce flow configuration",
   "author": {
     "name": "Gradient Works"
