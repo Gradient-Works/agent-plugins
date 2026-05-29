@@ -4,7 +4,7 @@ Actions for checking account eligibility against target books and triggering ret
 
 ## Check Account Eligibility
 
-**Action class:** `CheckTargetBookEligibilityAction`
+**Action class:** `GradientWorks__CheckTargetBookEligibilityAction`
 
 **Note:** Bookbuilder must be enabled to use this action.
 
@@ -34,7 +34,7 @@ specified User based on the User's assigned Target Book.
 
 ## Retrieval
 
-**Action class:** `AsyncRetrievalAction`
+**Action class:** `GradientWorks__AsyncRetrievalAction`
 
 **Note:** Bookbuilder must be enabled to use this action.
 

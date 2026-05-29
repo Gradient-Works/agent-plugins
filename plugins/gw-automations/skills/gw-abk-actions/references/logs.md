@@ -4,7 +4,7 @@ Actions for writing messages to Gradient Works Log Entries, useful for debugging
 
 ## Log Message
 
-**Action class:** `LogAction`
+**Action class:** `GradientWorks__LogAction`
 
 Publish a message to Gradient Works Log Entries. This is useful for debugging
 your Flows.

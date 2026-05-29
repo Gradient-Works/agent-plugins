@@ -15,7 +15,7 @@ in the queue is eligible.
 
 ## Assign Multiple Items
 
-**Action class:** `AssignMultiItemAction`
+**Action class:** `GradientWorks__AssignMultiItemAction`
 
 Assigns a list of items to users associated with a Gradient Works Queue. The
 items may be of any type (e.g. Account, Lead, etc). The assignments are
@@ -62,7 +62,7 @@ such as Send Single Assignment Email or Send Slack Message.
 
 ## Assign Pending Items for Multiple Queues
 
-**Action class:** `AssignPendingMultiQueueAction`
+**Action class:** `GradientWorks__AssignPendingMultiQueueAction`
 
 Performs immediate assignment of any pending items in the specified list of
 Queues. The results of each assignment are available in the List of Assignment
@@ -103,7 +103,7 @@ such as Send Single Assignment Email or Send Slack Message.
 
 ## Assign Pending Items for Single Queue
 
-**Action class:** `AssignPendingSingleQueueAction`
+**Action class:** `GradientWorks__AssignPendingSingleQueueAction`
 
 Performs immediate assignment of any pending items in the specified Queue.
 The results of each assignment are available in the List of Assignment
@@ -144,7 +144,7 @@ such as Send Single Assignment Email or Send Slack Message.
 
 ## Assign Single Item
 
-**Action class:** `AssignSingleItemAction`
+**Action class:** `GradientWorks__AssignSingleItemAction`
 
 Assigns an item to a user associated with a Gradient Works Queue. The item
 may be of any type (e.g. Account, Lead, etc). The assignment is performed
@@ -190,7 +190,7 @@ such as Send Single Assignment Email or Send Slack Message.
 
 ## Enqueue Multiple Items
 
-**Action class:** `EnqueueAction`
+**Action class:** `GradientWorks__EnqueueAction`
 
 Adds items to a Gradient Works Queue. The items may be of any type
 (e.g. Account, Lead, etc). This **does not** assign the items immediately,
@@ -224,7 +224,7 @@ _None._
 
 ## Enqueue Single Account to Target Book Queue
 
-**Action class:** `EnqueueTargetBookAccountAction`
+**Action class:** `GradientWorks__EnqueueTargetBookAccountAction`
 
 Adds an Account to a Gradient Works Target Book Queue. The account is put in a
 pending state and assigned asynchronously — Target Book Queues always process
@@ -253,7 +253,7 @@ _None._
 
 ## Enqueue Single Item
 
-**Action class:** `EnqueueOneAction`
+**Action class:** `GradientWorks__EnqueueOneAction`
 
 Adds an item to a Gradient Works Queue. The item may be of any type
 (e.g. Account, Lead, etc). This **does not** assign the item immediately,
@@ -287,7 +287,7 @@ _None._
 
 ## Schedule and Assign Single Item
 
-**Action class:** `AssignAndScheduleSingleItemAction`
+**Action class:** `GradientWorks__AssignAndScheduleSingleItemAction`
 
 **Note:** This action can only be used in Screen flows, one item at a time.
 Scheduling must be enabled in your Gradient Works configuration.

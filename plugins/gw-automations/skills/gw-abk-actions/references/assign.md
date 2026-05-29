@@ -4,7 +4,7 @@ Direct assignment actions.
 
 ## Directly Assign Items
 
-**Action class:** `DirectAssignSingleItemAction`
+**Action class:** `GradientWorks__DirectAssignSingleItemAction`
 
 Assigns one or more items directly to a specific User or Salesforce Queue.
 

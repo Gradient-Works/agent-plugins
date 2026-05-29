@@ -4,7 +4,7 @@ Post-assignment actions: creating tasks, adding people to campaigns, enrolling p
 
 ## Add Person to Campaign
 
-**Action class:** `AddProspectToCampaignAction`
+**Action class:** `GradientWorks__AddProspectToCampaignAction`
 
 Use this action to assign a person (Lead or Contact) to an existing
 Campaign. If the person already exists in the Campaign, the action returns
@@ -45,7 +45,7 @@ Supported `dataType` values: `String`, `Integer`, `Number`, `Boolean`, `Date`, `
 
 ## Add Person to Sales Engagement Cadence
 
-**Action class:** `AddProspectToCadenceAction`
+**Action class:** `GradientWorks__AddProspectToCadenceAction`
 
 **Note:** Authentication with a Sales Engagement Platform is required to use this action.
 This action runs asynchronously and has no outputs.
@@ -75,7 +75,7 @@ _None._
 
 ## Check Person Enrollment in Cadence
 
-**Action class:** `ProspectEnrollmentInCadenceAction`
+**Action class:** `GradientWorks__ProspectEnrollmentInCadenceAction`
 
 Use this action to check whether a Lead or Contact is already enrolled in
 a Sales Engagement Cadence.
@@ -107,7 +107,7 @@ If an error occurs, the error details are available in the `error` output.
 
 ## Create Task
 
-**Action class:** `CreateTaskAction`
+**Action class:** `GradientWorks__CreateTaskAction`
 
 Use this action to immediately create and assign Tasks to users.
 
@@ -150,7 +150,7 @@ Supported `dataType` values: `String`, `Integer`, `Number`, `Boolean`, `Date`, `
 
 ## Send Slack Message
 
-**Action class:** `SendChatNotificationAction`
+**Action class:** `GradientWorks__SendChatNotificationAction`
 
 **Note:** The Gradient Works Slack app must be installed in your workspace to use
 this action. This action runs asynchronously and has no outputs.
