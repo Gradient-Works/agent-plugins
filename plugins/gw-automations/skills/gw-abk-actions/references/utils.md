@@ -4,7 +4,7 @@ Utility actions for miscellaneous flow operations.
 
 ## Evaluate Domain against Denylist
 
-**Action class:** `GradientWorks__GWFXEvaluateDomainAction`
+**`actionName`:** `GradientWorks__GWFXEvaluateDomainAction`
 
 Extracts a domain from a text `input` and checks whether it is in the
 configured domain denylist. The `result` output contains the extracted

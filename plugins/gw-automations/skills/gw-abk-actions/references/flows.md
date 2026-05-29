@@ -4,7 +4,7 @@ Flow lifecycle and subflow execution actions. Place Start at the top and Finish 
 
 ## Execute Subflow
 
-**Action class:** `GradientWorks__GWFXExecuteSubflowAction`
+**`actionName`:** `GradientWorks__GWFXExecuteSubflowAction`
 
 **Note:** This is an advanced action. If your subflow is not optimized or this action
 is used repeatedly (e.g. in a loop), your Flow may run poorly or fail.
@@ -54,7 +54,7 @@ _None._
 
 ## Failed
 
-**Action class:** `GradientWorks__FailedFlowAction`
+**`actionName`:** `GradientWorks__FailedFlowAction`
 
 Pair this action with StartFlowAction. Use it inside a fault path in a Flow
 to ensure proper Flow execution error tracing.
@@ -77,7 +77,7 @@ to ensure proper Flow execution error tracing.
 
 ## Finish
 
-**Action class:** `GradientWorks__FinishFlowAction`
+**`actionName`:** `GradientWorks__FinishFlowAction`
 
 Pair this action with StartFlowAction. Use it at the very end of the Flow
 to ensure proper Flow execution tracing.
@@ -99,7 +99,7 @@ to ensure proper Flow execution tracing.
 
 ## Resume
 
-**Action class:** `GradientWorks__ResumeFlowAction`
+**`actionName`:** `GradientWorks__ResumeFlowAction`
 
 Pair this with StartFlowAction and FinishFlowAction. Use this action after a
 Screen element in a Screen Flow to resume execution tracing. Screen elements
@@ -124,7 +124,7 @@ lifecycle can be tracked.
 
 ## Start
 
-**Action class:** `GradientWorks__StartFlowAction`
+**`actionName`:** `GradientWorks__StartFlowAction`
 
 Use this action at the very beginning of a Flow to enable execution tracing.
 Also place a Finish action at the end of the Flow.

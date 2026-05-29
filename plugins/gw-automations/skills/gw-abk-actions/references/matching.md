@@ -32,7 +32,7 @@ CHILD_AGGREGATE ranker: `{"kind":"CHILD_AGGREGATE","order":"HIGHER_IS_BETTER|LOW
 
 ## Match Account to Account
 
-**Action class:** `GradientWorks__MatchAccountToAccountAction`
+**`actionName`:** `GradientWorks__MatchAccountToAccountAction`
 
 Flow action that matches one or more subject Accounts to candidate Accounts using
 configurable match criteria, optional filters, and optional rankers.
@@ -72,7 +72,7 @@ executing MatchAccountToAccountAction.
 
 ## Match Lead to Account
 
-**Action class:** `GradientWorks__MatchLeadToAccountAction`
+**`actionName`:** `GradientWorks__MatchLeadToAccountAction`
 
 Flow action that matches one or more subject Leads to candidate Accounts using
 configurable match criteria, optional filters, and optional rankers.
@@ -113,7 +113,7 @@ executing MatchLeadToAccountAction.
 
 ## Match Lead to Contact
 
-**Action class:** `GradientWorks__MatchLeadToContactAction`
+**`actionName`:** `GradientWorks__MatchLeadToContactAction`
 
 Flow action that matches one or more subject Leads to candidate Contacts using
 configurable match criteria, optional filters, and optional rankers.
@@ -155,7 +155,7 @@ The bestMatch Contact is queried for AccountId to support lead conversion.
 
 ## Match Lead to Lead
 
-**Action class:** `GradientWorks__MatchLeadToLeadAction`
+**`actionName`:** `GradientWorks__MatchLeadToLeadAction`
 
 Flow action that matches one or more subject Leads to candidate Leads using
 configurable match criteria, optional filters, and optional rankers.

@@ -4,7 +4,7 @@ Utility actions for building and querying data structures: record maps, SOQL que
 
 ## Build Record Map from Field
 
-**Action class:** `GradientWorks__GWFXBuildRecordMapFromFieldAction`
+**`actionName`:** `GradientWorks__GWFXBuildRecordMapFromFieldAction`
 
 Takes a collection of records as `input` and the name of a field and builds
 a RecordMap where the keys are the values of the specified `keyField`. You
@@ -49,7 +49,7 @@ Build Record Map from Lookup.
 
 ## Build Record Map from Lookup
 
-**Action class:** `GradientWorks__GWFXBuildRecordMapFromLookupAction`
+**`actionName`:** `GradientWorks__GWFXBuildRecordMapFromLookupAction`
 
 Takes a collection of records as `input` and the name of a lookup field
 specified as `lookupField`. This will then query for all the related records
@@ -115,7 +115,7 @@ Build Record Map from Lookup.
 
 ## Build Text Collection from Field
 
-**Action class:** `GradientWorks__GWFXBuildTextCollectionFromFieldAction`
+**`actionName`:** `GradientWorks__GWFXBuildTextCollectionFromFieldAction`
 
 Takes a collection of records as `input` and the name of a field and builds
 a text collection containing the values of the specified `field`.
@@ -146,7 +146,7 @@ be removed.
 
 ## Execute SOQL
 
-**Action class:** `GradientWorks__GWFXExecuteSOQLQueryAction`
+**`actionName`:** `GradientWorks__GWFXExecuteSOQLQueryAction`
 
 **Note:** This is an advanced action. If your query is not specific enough,
 your flow may run slowly or fail. Only use this if you have a thorough
@@ -188,7 +188,7 @@ Only the fields specified in the SELECT clause will be available on the returned
 
 ## Get Record from Record Map
 
-**Action class:** `GradientWorks__GWFXRecordMapGetAction`
+**`actionName`:** `GradientWorks__GWFXRecordMapGetAction`
 
 Retrieve a particular record from a RecordMap using the specified key. This
 will commonly be used inside a `Loop` to efficiently retrieve a related record.
