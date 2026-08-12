@@ -1,30 +1,27 @@
 # Gradient Works Agent Plugins
 
-This repository provides the official collection of Gradient Works agent plugins. It includes plugins for working with the Gradient Works platform, including the Automation Builder Kit (ABK), Salesforce flow configuration, and related areas.
+This repository contains the official Gradient Works plugins and skills for supported AI coding agents.
 
 Plugins are contributed and maintained by Gradient Works.
 
 ## 🗂️ Structure
 
+Each plugin is self-contained under `plugins/` and registered in the marketplace catalogs.
+
 ```
 agent-plugins/
-├── plugins/                        # Plugins
-│   └── gw-automations/             # Gradient Works automations plugin
-│       ├── .claude-plugin/         # Claude Code manifest
-│       ├── .codex-plugin/          # Codex manifest
-│       ├── .cursor-plugin/         # Cursor manifest
-│       ├── skills/
-│       │   └── gw-abk-actions/     # ABK flow actions skill
-│       │       ├── references/     # Reference docs by action category
-│       │       └── SKILL.md
-│       └── README.md
-├── .agents/
-│   └── plugins/
-│       └── marketplace.json        # Codex marketplace catalog
-├── .claude-plugin/
-│   └── marketplace.json            # Claude Code marketplace catalog
-├── .cursor-plugin/
-│   └── marketplace.json            # Cursor marketplace catalog
+├── plugins/
+│   └── <plugin-name>/
+│       ├── .claude-plugin/plugin.json
+│       ├── .codex-plugin/plugin.json
+│       ├── .cursor-plugin/plugin.json
+│       └── skills/
+│           └── <skill-name>/
+│               ├── SKILL.md
+│               └── references/          # Optional supporting references
+├── .agents/plugins/marketplace.json          # Codex marketplace catalog
+├── .claude-plugin/marketplace.json           # Claude Code marketplace catalog
+├── .cursor-plugin/marketplace.json           # Cursor marketplace catalog
 ├── LICENSE
 └── README.md
 ```
@@ -35,17 +32,17 @@ agent-plugins/
 
 ```shell
 /plugin marketplace add Gradient-Works/agent-plugins
-/plugin install gw-automations@gradient-works-plugins
+/plugin install <plugin-name>@gradient-works-plugins
 ```
 
 ### Codex
 
 **From the app:**
 
-1. Go to the **Plugins** section
-2. Click the dropdown (defaults to **Built by OpenAI**) and select **+ Add more**
-3. Paste `https://github.com/Gradient-Works/agent-plugins` as the **Source** and click **Add marketplace**
-4. Select **Gradient Works Plugins** from the dropdown and install **gw-automations**
+1. Go to the **Plugins** section.
+2. Open the marketplace dropdown and select **+ Add more**.
+3. Add `https://github.com/Gradient-Works/agent-plugins` as the source.
+4. Select **Gradient Works Plugins**, then install the desired plugins.
 
 **From the CLI:**
 
@@ -53,21 +50,29 @@ agent-plugins/
 codex plugin marketplace add Gradient-Works/agent-plugins
 ```
 
-Then browse and install **gw-automations** from the Plugin Directory.
+Then install the desired plugins from the Plugin Directory.
 
 ### Cursor
 
 **Individual users:**
 
-1. Go to **Settings → Plugins**
-2. Paste `https://github.com/Gradient-Works/agent-plugins` in the search bar and add the marketplace
-3. Install **Gradient Works Automations** (gw-automations) from the marketplace panel
+1. Go to **Settings → Plugins**.
+2. Add `https://github.com/Gradient-Works/agent-plugins` as a marketplace.
+3. Install the desired plugins from the marketplace panel.
 
-**Team/Enterprise (distribute to your whole team):**
+**Team/Enterprise:**
 
-1. Go to **Dashboard → Settings → Plugins → Team Marketplaces**
-2. Click **Import** and paste `https://github.com/Gradient-Works/agent-plugins`
-3. Set **Gradient Works Automations** (gw-automations) as required or optional for your team
+1. Go to **Dashboard → Settings → Plugins → Team Marketplaces**.
+2. Import `https://github.com/Gradient-Works/agent-plugins`.
+3. Set the desired plugins as required or optional.
+
+### Other tools
+
+For tools that support the [Agent Skills specification](https://agentskills.io/):
+
+```shell
+npx skills add Gradient-Works/agent-plugins
+```
 
 ## 🔌 Plugins
 
@@ -79,13 +84,13 @@ Reference documentation for all Gradient Works ABK (Automation Builder Kit) invo
 
 - **gw-abk-actions** — Look up action reference docs by category (queues, matching, flows, next steps, collections, dynamic books, users, logs, events, leads, assign, notifications, utils). Use when building or interpreting Salesforce flow configurations that include Gradient Works actions.
 
-### Other tools
+### gw-carve
 
-For any other tool that supports the [Agent Skills specification](https://agentskills.io/):
+Run Carve scenarios end to end through the Gradient Works MCP tools.
 
-```shell
-npx skills add Gradient-Works/agent-plugins
-```
+**Included skills:**
+
+- **carve** — Create projects and scenarios, send the user's instructions to the Carve agent, run a carve, build analysis cards, explain results, override rows, and deploy to CRM.
 
 ## Project Governance & Support
 
