@@ -1,6 +1,6 @@
 # Cards
 
-Cards are the visual explanation of a finished scenario. Five types:
+Cards are the visual explanation of a finished scenario. Cards are generated automatically by default when a carve completes successfully. Five types:
 
 | Type | Shows |
 |---|---|
@@ -14,7 +14,18 @@ The scenario must have been run before any card can be previewed or saved.
 
 **Do not use `send_carve_message` for cards.** Card work goes through the card tools.
 
-**Flow: ask → preview → confirm → save.**
+## Check existing cards first
+
+Before creating a card:
+
+1. Call `list_carve_project_scenario_cards` to inspect the cards already available.
+2. If a potentially matching card exists, use `get_carve_project_scenario_card` to inspect its current values.
+3. If the user asks to create a card and a suitable card already exists, do not create a duplicate. Tell the user that the requested card already exists and offer to display it with `view_carve_project_scenario_card`.
+4. Only create a new card when no suitable card exists or the user explicitly requests a different one.
+
+Do not create duplicate cards.
+
+**Flow: inspect existing cards → ask → preview → confirm → save.**
 
 1. Ask the user what they want the card to show, and which type fits. Don't guess.
 2. Preview it with `preview_carve_project_scenario_card`, which opens the interactive card. Nothing is saved at this step.

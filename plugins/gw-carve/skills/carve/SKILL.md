@@ -13,7 +13,7 @@ Carve applies allocation rules the user describes in plain language: splitting a
 | Term | Meaning |
 |---|---|
 | **Project** | The container. Owns the data and one or more scenarios. |
-| **Data source** | Something attached to a project that supplies rows: an uploaded CSV or Excel file, a Salesforce report, a HubSpot list, or a market map. |
+| **Data source** | Something attached to a project that supplies rows. Through the MCP tools, use an uploaded CSV or Excel file, or an exported market map. Salesforce reports and HubSpot lists can only be configured as data sources in the Gradient Works web app. |
 | **Account sheet** | The table scenarios read from, and where results are written back as columns. A project's primary data source *is* the account sheet, so a single source on its own is enough. Additional sources supply extra columns only once their join columns are configured, which is a web app step. |
 | **Scenario** | One set of rules to apply, e.g. "split the enterprise book across these five reps by region, keep existing relationships intact." Not limited to reallocation; it also covers building new territories, segments, and similar. |
 | **Carve agent** | The agent that gathers requirements and executes the scenario. |
