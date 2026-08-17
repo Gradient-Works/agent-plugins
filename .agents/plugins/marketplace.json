@@ -22,6 +22,20 @@
       "author": {
         "name": "Gradient Works"
       }
+    },
+    {
+      "name": "gw-carve",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gw-carve"
+      },
+      "policy": {
+        "installation": "AVAILABLE"
+      },
+      "description": "Run Carve scenarios end to end through the Gradient Works MCP tools",
+      "author": {
+        "name": "Gradient Works"
+      }
     }
   ]
 }

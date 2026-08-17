@@ -16,6 +16,14 @@
       "author": {
         "name": "Gradient Works"
       }
+    },
+    {
+      "name": "gw-carve",
+      "source": "gw-carve",
+      "description": "Run Carve scenarios end to end through the Gradient Works MCP tools",
+      "author": {
+        "name": "Gradient Works"
+      }
     }
   ]
 }

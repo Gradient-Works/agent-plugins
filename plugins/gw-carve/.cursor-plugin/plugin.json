@@ -1,0 +1,10 @@
+{
+  "name": "gw-carve",
+  "displayName": "Gradient Works Carve",
+  "version": "0.1.0",
+  "description": "Run Carve scenarios end to end through the Gradient Works MCP tools",
+  "homepage": "https://github.com/Gradient-Works/agent-plugins/blob/main/README.md",
+  "author": {
+    "name": "Gradient Works"
+  }
+}
