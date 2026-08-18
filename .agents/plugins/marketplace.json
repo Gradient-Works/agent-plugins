@@ -10,29 +10,15 @@
   },
   "plugins": [
     {
-      "name": "gw-automations",
+      "name": "gradient-works",
       "source": {
         "source": "local",
-        "path": "./plugins/gw-automations"
+        "path": "./plugins/gradient-works"
       },
       "policy": {
         "installation": "AVAILABLE"
       },
-      "description": "Gradient Works automation plugin exposing the gw-abk-actions skill for Salesforce flow configuration",
-      "author": {
-        "name": "Gradient Works"
-      }
-    },
-    {
-      "name": "gw-carve",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gw-carve"
-      },
-      "policy": {
-        "installation": "AVAILABLE"
-      },
-      "description": "Run Carve scenarios end to end through the Gradient Works MCP tools",
+      "description": "Gradient Works skills for Carve territory and book allocation, plus ABK automation reference for Salesforce flows",
       "author": {
         "name": "Gradient Works"
       }

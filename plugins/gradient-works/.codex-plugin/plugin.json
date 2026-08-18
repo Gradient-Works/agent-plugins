@@ -1,0 +1,16 @@
+{
+  "name": "gradient-works",
+  "displayName": "Gradient Works",
+  "version": "1.0.0",
+  "description": "Gradient Works skills for Carve territory and book allocation, plus ABK automation reference for Salesforce flows",
+  "author": {
+    "name": "Gradient Works"
+  },
+  "homepage": "https://github.com/Gradient-Works/agent-plugins/blob/main/README.md",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Gradient Works",
+    "shortDescription": "Carve territories and books, and look up ABK action reference"
+  }
+}
