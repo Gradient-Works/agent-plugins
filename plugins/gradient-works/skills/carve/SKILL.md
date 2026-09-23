@@ -1,7 +1,7 @@
 ---
 name: carve
 displayName: Gradient Works Carve
-description: Run Carve scenarios end to end through the Gradient Works MCP tools. Create projects and scenarios, send the user's instructions to the Carve agent, run a carve, build analysis cards, explain results, override rows, and deploy to CRM. Use whenever the user asks to carve a book, build a territory or allocation scenario, create cards for a scenario, or understand why accounts were assigned the way they were.
+description: Run Carve scenarios end to end through the Gradient Works MCP tools. Create projects and scenarios, send the user's instructions to the Carve agent, run a carve, build analysis cards, explain results, override rows, leave feedback on scenarios and accounts, and deploy to CRM. Use whenever the user asks to carve a book, build a territory or allocation scenario, create cards for a scenario, or understand why accounts were assigned the way they were.
 ---
 
 # Carve
