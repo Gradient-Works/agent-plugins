@@ -28,7 +28,7 @@ A thread is `open` or `resolved` and holds comments oldest-first. Threads belong
 ## Account and override threads
 
 - `gw_row_number` comes from the account sheet CSV (see [results.md](results.md)). Look up the row the user means there; don't guess it from an account name.
-- `to_value` should match a value that already appears in the scenario's results, such as a rep name or territory, spelled exactly as it is in the CSV.
+- `to_value` is usually one of the values already in the results column, such as a rep name or territory; spell it exactly as it appears in the CSV. It isn't limited to those values, so use a new one if that's what the user asks for.
 - An override thread changes the row's result **as soon as it is created**. Tell the user that.
 - Resolving an override thread keeps the override. Reverting puts the row back to the carve's assignment and resolves the thread. If the user says "close" or "done" and it's unclear which one they mean, ask.
 - Reopening a reverted override applies it again. If the row's result has changed since the revert, the reopen is refused. Tell the user the row has changed, show its current value from the CSV, and ask if they still want the thread's value. If they do, start a new override thread on that row.
