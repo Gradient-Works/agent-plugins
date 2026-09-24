@@ -1,7 +1,7 @@
 {
   "name": "gradient-works",
   "displayName": "Gradient Works",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Gradient Works skills for Carve territory and book allocation, plus ABK automation reference for Salesforce flows",
   "homepage": "https://github.com/Gradient-Works/agent-plugins/blob/main/README.md",
   "author": {

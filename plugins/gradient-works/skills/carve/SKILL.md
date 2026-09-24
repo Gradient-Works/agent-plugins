@@ -1,7 +1,7 @@
 ---
 name: carve
 displayName: Gradient Works Carve
-description: Run Carve scenarios end to end through the Gradient Works MCP tools. Create projects and scenarios, send the user's instructions to the Carve agent, run a carve, build analysis cards, explain results, override rows, and deploy to CRM. Use whenever the user asks to carve a book, build a territory or allocation scenario, create cards for a scenario, or understand why accounts were assigned the way they were.
+description: Run Carve scenarios end to end through the Gradient Works MCP tools. Create projects and scenarios, send the user's instructions to the Carve agent, run a carve, build analysis cards, explain results, override rows, leave feedback on scenarios and accounts, and deploy to CRM. Use whenever the user asks to carve a book, build a territory or allocation scenario, create cards for a scenario, or understand why accounts were assigned the way they were.
 ---
 
 # Carve
@@ -30,6 +30,7 @@ Carve applies allocation rules the user describes in plain language: splitting a
 - [Running a scenario](references/scenarios.md)
 - [Reading results, explaining how a carve was decided, and overrides](references/results.md)
 - [Cards](references/cards.md)
+- [Scenario feedback](references/feedback.md)
 - [Deploying to CRM](references/deployment.md)
 
 ## Confirm before
@@ -37,6 +38,7 @@ Carve applies allocation rules the user describes in plain language: splitting a
 - Retrying an attach with `use_credits=true` after a row-limit error (this spends row-overage credits)
 - Running a carve
 - Saving a card
+- Deleting a feedback comment (permanent, cannot be undone)
 - Deploying to CRM
 - Downloading a file to a specific location
 - Removing a data source (permanent, cannot be undone)
